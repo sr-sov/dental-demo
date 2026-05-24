@@ -1,36 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  /* Warm Clinical Palette */
-  --color-wc-bg: #F6F1E8;               /* Warm Alberta home taupe */
-  --color-wc-bg-alt: #EFE7D7;           /* Tinted background alternate */
-  --color-wc-surface: #FFFFFF;          /* Pure clinical white */
-  --color-wc-surface-accent: #EFE7D7;
-  --color-wc-ink: #1F2E40;              /* Primary Slate blue/black for text */
-  --color-wc-ink-soft: #445567;         /* Empathetic secondary gray */
-  --color-wc-muted: #7A8593;            /* Border outlines and captions */
-  --color-wc-line: #E5DCC8;             /* Soft organic border separation */
-  --color-wc-accent: #D97757;           /* Primary vibrant clay-orange for CTAs */
-  --color-wc-accent-soft: #F4DDD2;      /* Soft backdrop highlights */
-  --color-wc-accent-glow: rgba(217, 119, 87, 0.25);
-  --color-wc-gold: #C9A464;             /* Luxurious gold accent for badges */
-  --color-wc-deep: #142233;             /* Deep Midnight Slate for Emergency band */
+  /* Semantic color tokens (project-portable) */
+  --color-surface: #F6F1E8;
+  --color-surface-alt: #EFE7D7;
+  --color-surface-raised: #FFFFFF;
+  --color-surface-emphasis: #142233;
+  --color-foreground: #1F2E40;
+  --color-foreground-muted: #445567;
+  --color-foreground-subtle: #7A8593;
+  --color-line: #E5DCC8;
+  --color-accent: #D97757;
+  --color-accent-soft: #F4DDD2;
+  --color-gold: #C9A464;
 
   /* Typography Variables */
-  --font-display: var(--font-display);  /* Sora (approachable geometric display) */
-  --font-body: var(--font-body);        /* Manrope (readable body paragraphs) */
-  --font-serif: var(--font-serif);      /* Crimson Pro (boutique display serif) */
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-serif: var(--font-serif);
 }
 
 @layer base {
   html, body {
-    @apply bg-wc-bg text-wc-ink font-body antialiased;
+    @apply bg-surface text-foreground font-body antialiased;
     scroll-behavior: smooth;
   }
   :focus {
     outline: none;
   }
   :focus-visible {
-    @apply outline-2 outline-wc-accent outline-offset-2 rounded-md;
+    @apply outline-2 outline-accent outline-offset-2 rounded-md;
   }
 }

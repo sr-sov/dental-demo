@@ -9,25 +9,25 @@ A modern, highly accessible, and premium design system tailored to Calgary's pre
 Our palette is carefully optimized for emotional comfort, visual hierarchy, and AA/AAA accessibility compliance.
 
 ### Theme Colors (Ground-Up Tailwind CSS v4 Mappings)
-*   **Neutral Taupe Backdrop (`wc-bg`):** `#F6F1E8`
+*   **Neutral Taupe Backdrop (`surface`):** `#F6F1E8`
     *   *Usage:* Global canvas background. Simulates warm plaster and residential wood.
-*   **Tinted Contrast (`wc-bg-alt`):** `#EFE7D7`
+*   **Tinted Contrast (`surface-alt`):** `#EFE7D7`
     *   *Usage:* Light structural background offsets, section alternates.
-*   **Clinical Dental White (`wc-surface`):** `#FFFFFF`
+*   **Clinical Dental White (`surface-raised`):** `#FFFFFF`
     *   *Usage:* Content cards, review container backdrops, form inputs.
-*   **Midnight Slate (`wc-deep`):** `#142233`
+*   **Midnight Slate (`surface-emphasis`):** `#142233`
     *   *Usage:* High-contrast bands, dark footers, primary urgent CTA containers.
-*   **Text Slate (`wc-ink`):** `#1F2E40`
+*   **Text Slate (`foreground`):** `#1F2E40`
     *   *Usage:* Headers, subtitles, maximum readability body text.
-*   **Soft Secondary Gray (`wc-ink-soft`):** `#445567`
+*   **Soft Secondary Gray (`foreground-muted`):** `#445567`
     *   *Usage:* Sub-captions, long-form paragraph body text.
-*   **Muted Gray (`wc-muted`):** `#7A8593`
+*   **Muted Gray (`foreground-subtle`):** `#7A8593`
     *   *Usage:* Border lines, icon containers, secondary elements.
-*   **Clay Orange Accent (`wc-accent`):** `#D97757`
+*   **Clay Orange Accent (`accent`):** `#D97757`
     *   *Usage:* Primary call-to-action buttons, active states, focus indicator outline rings.
-*   **Highlight Soft Orange (`wc-accent-soft`):** `#F4DDD2`
+*   **Highlight Soft Orange (`accent-soft`):** `#F4DDD2`
     *   *Usage:* Icon backdrop highlights, light alert cards.
-*   **Warm Gold (`wc-gold`):** `#C9A464`
+*   **Warm Gold (`gold`):** `#C9A464`
     *   *Usage:* Trust badges, stars, premium indicators.
 
 ---
@@ -71,14 +71,10 @@ Strict vertical rhythm and horizontal alignments are maintained using an 8px bas
 
 To comply with the Web Interface Guidelines, all interactive widgets follow standard usability patterns:
 
-### Buttons (`.wc-btn`)
-*   **Primary Accent Button:** `bg-wc-accent text-white font-semibold rounded-xl px-4 py-2.5 transition duration-150 active:scale-[0.98] hover:brightness-[1.05]`
-*   **Secondary Ghost Button:** `bg-wc-surface border border-wc-line text-wc-ink font-semibold rounded-xl px-4 py-2.5 hover:bg-wc-bg-alt/50 transition`
-
-### Focus Ring Indicator (`:focus-visible`)
-*   Never use pure `outline-none` / `outline: none` without focus replacements.
-*   Standard focus style across all buttons, anchors, and inputs:
-    `focus-visible:outline-2 focus-visible:outline-wc-accent focus-visible:outline-offset-2`
+### Buttons (`.po-btn`)
+*   **Primary Accent Button:** `bg-accent text-surface-raised font-semibold rounded-xl px-4 py-2.5 transition duration-150 active:scale-[0.98] hover:brightness-[1.05]`
+*   **Secondary Ghost Button:** `bg-surface-raised border border-line text-foreground font-semibold rounded-xl px-4 py-2.5 hover:bg-surface-alt/50 transition`
+    `focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2`
 
 ### Accordions (FAQ & Service details)
 *   Must define matching `aria-expanded` and `aria-controls` bindings.
