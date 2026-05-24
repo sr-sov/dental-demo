@@ -274,7 +274,10 @@ export default function BookingForm() {
           </div>
 
           <CalendlyEmbed
-            url="https://calendly.com/prairie-oak/general-care"
+            url={
+              process.env.NEXT_PUBLIC_CALENDLY_GENERAL_CARE_URL ||
+              'https://calendly.com/prairie-oak/general-care'
+            }
             prefill={{
               name: formData.fullName,
               email: formData.email,
