@@ -35,7 +35,7 @@ export default function Emergency() {
             </div>
 
             {/* Right Column: Instant Emergency Scheduling Calendar */}
-            <div className="lg:col-span-7 w-full h-[500px]">
+            <div className="lg:col-span-7 w-full min-h-[500px] lg:min-h-[550px]">
               <CalendlyEmbed
                 url={
                   process.env.NEXT_PUBLIC_CALENDLY_EMERGENCY_CARE_URL ||
