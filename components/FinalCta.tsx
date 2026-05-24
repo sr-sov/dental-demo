@@ -2,7 +2,7 @@ import BookingForm from './BookingForm';
 
 export default function FinalCta() {
   return (
-    <section className="bg-surface-emphasis py-14 lg:py-20" id="book">
+    <section className="bg-surface-emphasis py-14 lg:py-20" id="book" role="region" aria-label="Book an appointment">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
         {/* Headline Content */}
         <div className="lg:col-span-5 space-y-5 text-left">
@@ -20,7 +20,7 @@ export default function FinalCta() {
               href="tel:+15875550142"
               className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-transparent px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition"
             >
-              📞 Call (587) 555-0142
+              <span aria-hidden="true">📞</span> Call (587) 555-0142
             </a>
           </div>
         </div>

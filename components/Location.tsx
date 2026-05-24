@@ -12,7 +12,7 @@ export default function Location() {
   ];
 
   return (
-    <section className="bg-surface py-14 lg:py-20" id="visit">
+    <section className="bg-surface py-14 lg:py-20" id="visit" role="region" aria-label="Studio location and hours">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-16">
           
@@ -30,7 +30,7 @@ export default function Location() {
             <div className="space-y-6">
               {/* Address */}
               <div className="flex gap-4 items-start">
-                <div className="text-xl mt-0.5">📍</div>
+                <div aria-hidden="true" className="text-xl mt-0.5">📍</div>
                 <div>
                   <h4 className="font-display font-semibold text-sm text-foreground">
                     14025 Macleod Trail SE
@@ -43,7 +43,7 @@ export default function Location() {
 
               {/* Hours Grid */}
               <div className="flex gap-4 items-start">
-                <div className="text-xl mt-0.5">🕒</div>
+                <div aria-hidden="true" className="text-xl mt-0.5">🕒</div>
                 <div className="flex-1 max-w-sm">
                   <h4 className="font-display font-semibold text-sm text-foreground mb-3">
                     Studio Hours
@@ -67,8 +67,6 @@ export default function Location() {
               src="/office_map.png"
               alt="Map showing clinic location at 14025 Macleod Trail SE, South Calgary"
               fill
-              sizes="(max-width: 1024px) 100vw, 45vw"
-              quality={70}
               className="object-cover"
             />
           </div>

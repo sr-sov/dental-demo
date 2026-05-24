@@ -20,14 +20,14 @@ export default function StickyEmergencyBar() {
 
   return (
     <div
-      className={`fixed bottom-4 left-4 right-4 z-40 md:hidden rounded-2xl bg-surface-emphasis p-3 shadow-2xl border border-white/5 transition-all duration-300 ${
+      className={`fixed bottom-4 left-4 right-4 z-40 md:hidden rounded-2xl bg-surface-emphasis p-3 shadow-2xl border border-white/5 transition-all duration-300 motion-reduce:transition-none ${
         visible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'
       }`}
       style={{ transitionProperty: 'transform, opacity' }}
     >
       <div className="flex items-center justify-between gap-3">
         <a href="tel:+15875550142" className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white font-bold">
+          <div aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white font-bold">
             📞
           </div>
           <div>

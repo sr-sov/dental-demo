@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Logo & Description */}
           <div className="md:col-span-6 space-y-4">
             <a href="#top" className="flex items-center gap-2 font-serif text-lg font-semibold text-foreground">
-              <svg width="20" height="20" viewBox="0 0 32 32" fill="none" className="text-foreground">
+              <svg width="20" height="20" viewBox="0 0 32 32" fill="none" className="text-foreground" aria-hidden="true">
                 <circle cx="16" cy="16" r="15" stroke="currentColor" strokeWidth="1.3" />
                 <path d="M16 8 C 11 8, 9 12, 11 17 C 13 21, 16 22, 16 22 C 16 22, 19 21, 21 17 C 23 12, 21 8, 16 8 Z" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinejoin="round" />
                 <path d="M16 13 V 21" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
@@ -40,9 +40,9 @@ export default function Footer() {
               Get in Touch
             </h5>
             <ul className="space-y-2 text-xs font-semibold text-foreground-muted">
-              <li><a href="tel:+15875550142" className="hover:text-accent transition">📞 (587) 555-0142</a></li>
-              <li><a href="sms:+15875550142" className="hover:text-accent transition">💬 Text Us: (587) 555-0142</a></li>
-              <li><a href="#visit" className="hover:text-foreground transition">📍 14025 Macleod Trail SE</a></li>
+              <li><a href="tel:+15875550142" className="hover:text-accent transition"><span aria-hidden="true">📞</span> (587) 555-0142</a></li>
+              <li><a href="sms:+15875550142" className="hover:text-accent transition"><span aria-hidden="true">💬</span> Text Us: (587) 555-0142</a></li>
+              <li><a href="#visit" className="hover:text-foreground transition"><span aria-hidden="true">📍</span> 14025 Macleod Trail SE</a></li>
             </ul>
           </div>
 

@@ -20,7 +20,7 @@ export default function WarmClinical() {
     <div className="min-h-screen bg-surface text-foreground font-body selection:bg-accent-soft selection:text-accent">
       <Navbar ctaText={CTA_TEXT} />
       
-      <main>
+      <main id="main-content">
         <Hero ctaText={CTA_TEXT} />
         <TrustStrip />
         <Emergency />
