@@ -64,7 +64,7 @@ export default function Location() {
           {/* Stylized Location Map Photo */}
           <div className="lg:col-span-6 relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-line">
             <Image
-              src="/office_map.png"
+              src="/office_map.webp"
               alt="Map showing clinic location at 14025 Macleod Trail SE, South Calgary"
               fill
               className="object-cover"
