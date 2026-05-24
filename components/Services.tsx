@@ -64,7 +64,7 @@ export default function Services() {
             Care, three ways
           </span>
           <h2 className="font-serif text-3xl font-medium tracking-tight text-foreground md:text-4xl text-pretty max-w-2xl leading-tight">
-            Whatever brought you in, there's a path.
+            Whatever brought you in, there&apos;s a path.
           </h2>
         </div>
 
