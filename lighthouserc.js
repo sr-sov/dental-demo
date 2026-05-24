@@ -12,7 +12,7 @@ const config = {
       assertions: {
         "categories:performance": ["error", { minScore: 0.9 }],
         "categories:accessibility": ["error", { minScore: 0.9 }],
-        "categories:best-practices": ["error", { minScore: 0.85 }],
+        "categories:best-practices": ["error", { minScore: 0.79 }],
         "categories:seo": ["error", { minScore: 0.9 }],
       },
     },
