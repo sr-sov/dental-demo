@@ -52,6 +52,7 @@ export function Button({ variant = 'primary', size = 'md', className, children, 
     );
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { href: _omit, ...buttonProps } = props as ButtonAsButton;
   return (
     <button className={classes} {...buttonProps}>

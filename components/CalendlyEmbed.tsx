@@ -111,7 +111,7 @@ export default function CalendlyEmbed({
         script.removeEventListener('load', initWidget);
       }
     };
-  }, [url, prefill, onBookingComplete]);
+  }, [url, prefill, onBookingComplete, onError]);
 
   return (
     <div className="relative w-full h-[600px] rounded-2xl overflow-hidden border border-line bg-transparent">

@@ -60,7 +60,7 @@ export default function FaqSection() {
               The things people usually ask, up front.
             </h2>
             <p className="text-sm leading-relaxed text-foreground-muted max-w-md">
-              If yours isn't here, our Calgary front desk replies to texts within an hour during the day.
+              If yours isn&apos;t here, our Calgary front desk replies to texts within an hour during the day.
             </p>
             <div className="pt-2">
               <a

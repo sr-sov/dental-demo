@@ -9,7 +9,7 @@ export default function About() {
           {/* candid photo of Dr. Sarah */}
           <div className="lg:col-span-5 relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-line">
             <Image
-              src="/dr_sarah.png"
+              src="/dr_sarah.webp"
               alt="Dr. Sarah Al-Hussaini smiling in a naturally lit modern dental studio"
               fill
               className="object-cover"
