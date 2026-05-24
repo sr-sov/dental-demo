@@ -12,6 +12,8 @@ export default function About() {
               src="/dr_sarah.png"
               alt="Dr. Sarah Al-Hussaini smiling in a naturally lit modern dental studio"
               fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              quality={70}
               className="object-cover"
             />
           </div>
@@ -32,9 +34,9 @@ export default function About() {
             </p>
             
             <div className="rounded-2xl bg-surface-alt p-5 border border-line max-w-md">
-              <h4 className="font-display font-semibold text-sm text-foreground">
+              <h3 className="font-display font-semibold text-sm text-foreground">
                 Dr. Sarah Al-Hussaini
-              </h4>
+              </h3>
               <p className="text-xs text-foreground-subtle mt-1 leading-relaxed">
                 DDS, University of Alberta · ADAC member
               </p>

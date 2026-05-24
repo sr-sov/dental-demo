@@ -15,7 +15,7 @@ export default function TrustStrip() {
                 ✓
               </div>
               <div>
-                <h4 className="font-display font-semibold text-sm text-foreground">{b.t}</h4>
+                <h3 className="font-display font-semibold text-sm text-foreground">{b.t}</h3>
                 <p className="text-xs text-foreground-muted mt-1 leading-relaxed">{b.s}</p>
               </div>
             </div>

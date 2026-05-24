@@ -15,6 +15,8 @@ export default function Hero({ ctaText }: HeroProps) {
           fill
           preload
           fetchPriority="high"
+          sizes="100vw"
+          quality={60}
           className="object-cover brightness-[0.98]"
         />
         {/* Subtle overlay to soften photo details under the card edge */}
@@ -40,7 +42,7 @@ export default function Hero({ ctaText }: HeroProps) {
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="#book"
-                  className="rounded-xl bg-accent px-5 py-3.5 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(217,119,87,0.25)] hover:brightness-[1.05] transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-accent flex justify-between items-center gap-2"
+                  className="rounded-xl bg-accent px-5 py-3.5 text-base font-bold text-white shadow-[0_10px_30px_rgba(217,119,87,0.25)] hover:brightness-[1.05] transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-accent flex justify-between items-center gap-2"
                 >
                   <span>{ctaText}</span>
                   <span>➔</span>
@@ -49,8 +51,8 @@ export default function Hero({ ctaText }: HeroProps) {
                   href="tel:+15875550142"
                   className="rounded-xl bg-white border border-line px-5 py-3.5 text-sm font-semibold text-foreground hover:bg-surface-alt/50 transition focus-visible:outline-2 focus-visible:outline-accent flex justify-between items-center gap-2"
                 >
-                  <span className="flex items-center gap-2 text-accent">
-                    📞 (587) 555-0142
+                  <span className="flex items-center gap-2 text-foreground font-bold">
+                    <span className="text-accent">📞</span> (587) 555-0142
                   </span>
                   <span className="text-xs text-foreground-subtle">Same-day</span>
                 </a>

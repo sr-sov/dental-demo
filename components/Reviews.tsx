@@ -62,9 +62,9 @@ export default function Reviews() {
                   {r.name.split(' ').map((s) => s[0]).join('')}
                 </div>
                 <div>
-                  <h4 className="font-display font-semibold text-xs text-foreground">
+                  <h3 className="font-display font-semibold text-xs text-foreground">
                     {r.name}
-                  </h4>
+                  </h3>
                   <p className="text-[10px] text-foreground-subtle leading-normal mt-0.5">
                     {r.sub}
                   </p>
