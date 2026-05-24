@@ -51,14 +51,14 @@ export default function Reviews() {
               className="flex flex-col justify-between rounded-2xl bg-white border border-line p-6 shadow-sm hover:translate-y-[-2px] hover:shadow-md transition-all duration-200 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
               <div className="space-y-4">
-                <div className="text-gold text-sm">★★★★★</div>
+                <div aria-hidden="true" className="text-gold text-sm">★★★★★</div>
                 <p className="font-serif text-sm font-medium text-foreground leading-relaxed">
                   “{r.quote}”
                 </p>
               </div>
               
               <div className="flex items-center gap-3 mt-6">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-accent text-xs font-bold font-display">
+                <div aria-hidden="true" className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-accent text-xs font-bold font-display">
                   {r.name.split(' ').map((s) => s[0]).join('')}
                 </div>
                 <div>

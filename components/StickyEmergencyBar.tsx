@@ -27,7 +27,7 @@ export default function StickyEmergencyBar() {
     >
       <div className="flex items-center justify-between gap-3">
         <a href="tel:+15875550142" className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white font-bold">
+          <div aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white font-bold">
             📞
           </div>
           <div>

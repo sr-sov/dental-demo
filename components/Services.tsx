@@ -68,13 +68,14 @@ export default function Services() {
                   aria-controls={`service-panel-${i}`}
                 >
                   <div className="flex justify-between items-baseline mb-3">
-                    <span className="font-display text-xs font-semibold text-accent">{s.cat}</span>
+                    <span aria-hidden="true" className="font-display text-xs font-semibold text-accent">{s.cat}</span>
                     <span className="text-xs italic text-foreground-subtle">{s.tag}</span>
                   </div>
                   <div className="font-serif text-xl font-semibold text-foreground pr-10">
                     {s.title}
                   </div>
                   <div 
+                    aria-hidden="true"
                     className="absolute top-6 right-6 h-8 w-8 rounded-full bg-surface/40 flex items-center justify-center text-foreground transition-transform duration-200 motion-reduce:transition-none"
                     style={{ transform: open ? 'rotate(45deg)' : 'rotate(0)' }}
                   >
@@ -102,7 +103,7 @@ export default function Services() {
                     onClick={scrollToForm} 
                     className="inline-flex items-center gap-2 mx-6 mb-6 font-display font-semibold text-xs text-foreground border-b border-foreground pb-0.5 hover:gap-4 transition cursor-pointer"
                   >
-                    Learn more & book ➔
+                    Learn more & book <span aria-hidden="true">➔</span>
                   </button>
                 </div>
               </div>

@@ -11,7 +11,7 @@ export default function Hero({ ctaText }: HeroProps) {
         {/* Text Content */}
         <div className="lg:col-span-7 space-y-6">
           <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-foreground-subtle uppercase">
-            <span className="h-[1px] w-5 bg-foreground-subtle block" />
+            <span className="h-[1px] w-5 bg-foreground-subtle block" aria-hidden="true" />
             Dental care · South Calgary
           </div>
           <h1 className="font-serif text-4xl font-medium tracking-tight text-foreground sm:text-5xl lg:text-6xl text-pretty leading-[1.05]">
@@ -26,20 +26,20 @@ export default function Hero({ ctaText }: HeroProps) {
               className="rounded-xl bg-accent px-5 py-3.5 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(217,119,87,0.25)] hover:brightness-[1.05] transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-accent flex justify-between items-center gap-2"
             >
               <span>{ctaText}</span>
-              <span>➔</span>
+              <span aria-hidden="true">➔</span>
             </a>
             <a
               href="tel:+15875550142"
               className="rounded-xl bg-white border border-line px-5 py-3.5 text-sm font-semibold text-foreground hover:bg-surface-alt/50 transition focus-visible:outline-2 focus-visible:outline-accent flex justify-between items-center gap-2"
             >
               <span className="flex items-center gap-2 text-accent">
-                📞 (587) 555-0142
+                <span aria-hidden="true">📞</span> (587) 555-0142
               </span>
               <span className="text-xs text-foreground-subtle">Same-day</span>
             </a>
           </div>
           <div className="flex items-center gap-2 text-xs text-foreground-muted">
-            <span className="text-gold text-lg">★★★★★</span>
+            <span className="text-gold text-lg" aria-hidden="true">★★★★★</span>
             <span><b>4.9</b> · 312 reviews from south Calgary</span>
           </div>
         </div>

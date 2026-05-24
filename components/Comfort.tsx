@@ -27,7 +27,7 @@ export default function Comfort() {
               key={c.t}
               className="rounded-2xl bg-white border border-line p-6 shadow-sm hover:translate-y-[-2px] hover:shadow-md transition-all duration-200 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
-              <span className="font-display text-xs font-semibold text-foreground-subtle block mb-4">
+              <span aria-hidden="true" className="font-display text-xs font-semibold text-foreground-subtle block mb-4">
                 0{i + 1}
               </span>
               <h3 className="font-serif text-lg font-semibold text-foreground mb-2 leading-snug">

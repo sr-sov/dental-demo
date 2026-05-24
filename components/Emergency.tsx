@@ -4,7 +4,7 @@ export default function Emergency() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-3xl bg-surface-emphasis p-8 shadow-xl md:p-12 lg:p-14">
           {/* Subtle warm glow background highlight */}
-          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-accent/15 blur-3xl pointer-events-none" />
+          <div aria-hidden="true" className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-accent/15 blur-3xl pointer-events-none" />
           
           <div className="relative max-w-2xl space-y-4">
             <span className="font-display text-xs font-semibold tracking-wider text-accent uppercase block">
@@ -21,7 +21,7 @@ export default function Emergency() {
                 href="tel:+15875550142"
                 className="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-white shadow-lg hover:brightness-[1.05] transition active:scale-[0.98]"
               >
-                📞 Call (587) 555-0142
+                <span aria-hidden="true">📞</span> Call (587) 555-0142
               </a>
             </div>
           </div>

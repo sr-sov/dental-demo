@@ -11,7 +11,7 @@ export default function TrustStrip() {
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-line rounded-2xl bg-white border border-line overflow-hidden shadow-sm">
           {badges.map((b) => (
             <div key={b.t} className="flex gap-4 items-start p-6">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-accent flex-shrink-0">
+              <div aria-hidden="true" className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-accent flex-shrink-0">
                 ✓
               </div>
               <div>

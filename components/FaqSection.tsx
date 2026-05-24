@@ -49,7 +49,7 @@ export default function FaqSection() {
                 href="sms:+15875550142"
                 className="inline-flex items-center gap-2 font-display font-semibold text-sm text-foreground border-b border-foreground pb-0.5 hover:gap-4 transition"
               >
-                Text us a question ➔
+                Text us a question <span aria-hidden="true">➔</span>
               </a>
             </div>
           </div>
@@ -68,6 +68,7 @@ export default function FaqSection() {
                   >
                     <span>{f.q}</span>
                     <span 
+                      aria-hidden="true"
                       className="flex h-7 w-7 items-center justify-center rounded-full bg-surface/40 text-foreground transition-transform duration-200 motion-reduce:transition-none"
                       style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0)' }}
                     >

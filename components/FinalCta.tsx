@@ -20,7 +20,7 @@ export default function FinalCta() {
               href="tel:+15875550142"
               className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-transparent px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition"
             >
-              📞 Call (587) 555-0142
+              <span aria-hidden="true">📞</span> Call (587) 555-0142
             </a>
           </div>
         </div>

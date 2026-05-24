@@ -30,7 +30,7 @@ export default function Location() {
             <div className="space-y-6">
               {/* Address */}
               <div className="flex gap-4 items-start">
-                <div className="text-xl mt-0.5">📍</div>
+                <div aria-hidden="true" className="text-xl mt-0.5">📍</div>
                 <div>
                   <h4 className="font-display font-semibold text-sm text-foreground">
                     14025 Macleod Trail SE
@@ -43,7 +43,7 @@ export default function Location() {
 
               {/* Hours Grid */}
               <div className="flex gap-4 items-start">
-                <div className="text-xl mt-0.5">🕒</div>
+                <div aria-hidden="true" className="text-xl mt-0.5">🕒</div>
                 <div className="flex-1 max-w-sm">
                   <h4 className="font-display font-semibold text-sm text-foreground mb-3">
                     Studio Hours
