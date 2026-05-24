@@ -51,7 +51,7 @@ export default function Hero({ ctaText }: HeroProps) {
             alt="Cozy residential-style dental reception area featuring warm wood walls and a fireplace nook"
             fill
             preload
-            fetchpriority="high"
+            fetchPriority="high"
             className="object-cover"
           />
         </div>
