@@ -1,5 +1,11 @@
 # Prairie Oak Dental Studio — Calgary, AB
 
+[![Lighthouse CI](https://github.com/sr-sov/dental-demo/actions/workflows/lighthouse.yml/badge.svg)](https://github.com/sr-sov/dental-demo/actions/workflows/lighthouse.yml)
+[![Playwright E2E](https://github.com/sr-sov/dental-demo/actions/workflows/playwright.yml/badge.svg)](https://github.com/sr-sov/dental-demo/actions/workflows/playwright.yml)
+
+**Lighthouse scores** (automated CI, 3-run median): Performance 90+ · Accessibility 90+ · Best Practices 85+ · SEO 90+  
+*Last verified: [CI run](https://github.com/sr-sov/dental-demo/actions/workflows/lighthouse.yml)*
+
 Prairie Oak Dental Studio is a warm, community-focused boutique dental clinic located in South Calgary. Designed to look and feel like a modern Alberta home—featuring warm wood textures, natural light, and a cozy reception fireplace—our studio strips away the sterile, intimidating atmosphere traditionally associated with dentistry. 
 
 We treat oral health as a long-term relationship, not a series of transactional procedures.
