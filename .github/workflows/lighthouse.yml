@@ -18,16 +18,19 @@ jobs:
       - name: Extract scores
         if: always()
         run: |
-          echo "## Lighthouse Results" >> $GITHUB_STEP_SUMMARY
-          for f in .lighthouseci/lhr-*.json; do
-            echo "### $(basename $f)" >> $GITHUB_STEP_SUMMARY
-            python3 -c "
-          import json
-          with open('$f') as fp:
-              d = json.load(fp)
-          cats = d['categories']
-          for key in ['performance','accessibility','best-practices','seo']:
-              s = cats[key]['score']
-              print(f'- **{key}**: {s*100:.0f}')
-          " >> $GITHUB_STEP_SUMMARY
-          done
+          files=(.lighthouseci/lhr-*.json)
+          if [ -f "${files[0]}" ]; then
+            echo "## Lighthouse Results" >> $GITHUB_STEP_SUMMARY
+            for f in .lighthouseci/lhr-*.json; do
+              echo "### $(basename $f)" >> $GITHUB_STEP_SUMMARY
+              python3 -c "
+            import json
+            with open('$f') as fp:
+                d = json.load(fp)
+            cats = d['categories']
+            for key in ['performance','accessibility','best-practices','seo']:
+                s = cats[key]['score']
+                print(f'- **{key}**: {s*100:.0f}')
+            " >> $GITHUB_STEP_SUMMARY
+            done
+          fi
