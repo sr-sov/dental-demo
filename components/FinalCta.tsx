@@ -2,7 +2,7 @@ import BookingForm from './BookingForm';
 
 export default function FinalCta() {
   return (
-    <section className="bg-surface-emphasis py-14 lg:py-20" id="book">
+    <section className="bg-surface-emphasis py-14 lg:py-20" id="book" role="region" aria-label="Book an appointment">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
         {/* Headline Content */}
         <div className="lg:col-span-5 space-y-5 text-left">

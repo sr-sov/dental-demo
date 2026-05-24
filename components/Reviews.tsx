@@ -23,7 +23,7 @@ export default function Reviews() {
   ];
 
   return (
-    <section className="bg-surface py-14 lg:py-20" id="reviews">
+    <section className="bg-surface py-14 lg:py-20" id="reviews" role="region" aria-label="Patient reviews">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-10">
           <div>

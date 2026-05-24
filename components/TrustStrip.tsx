@@ -6,7 +6,7 @@ export default function TrustStrip() {
   ];
 
   return (
-    <section className="bg-surface pb-10 pt-0">
+    <section className="bg-surface pb-10 pt-0" role="region" aria-label="Trust indicators">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-line rounded-2xl bg-white border border-line overflow-hidden shadow-sm">
           {badges.map((b) => (
@@ -15,7 +15,7 @@ export default function TrustStrip() {
                 ✓
               </div>
               <div>
-                <h3 className="font-display font-semibold text-sm text-foreground">{b.t}</h3>
+                <h4 className="font-display font-semibold text-sm text-foreground">{b.t}</h4>
                 <p className="text-xs text-foreground-muted mt-1 leading-relaxed">{b.s}</p>
               </div>
             </div>

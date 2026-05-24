@@ -30,7 +30,7 @@ export default function FaqSection() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-surface-alt py-14 lg:py-20" id="faq">
+    <section className="bg-surface-alt py-14 lg:py-20" id="faq" role="region" aria-label="Frequently asked questions">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
           {/* FAQ Head */}

@@ -39,7 +39,7 @@ export default function Services() {
   };
 
   return (
-    <section className="bg-surface-alt py-14 lg:py-20" id="services">
+    <section className="bg-surface-alt py-14 lg:py-20" id="services" role="region" aria-label="Care services">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-10">
           <span className="font-display text-xs font-semibold tracking-wider text-accent uppercase block mb-3">
