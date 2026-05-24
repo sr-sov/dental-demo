@@ -24,3 +24,14 @@ This file documents technical gotchas, environment fixes, compile bottlenecks, a
     Ref: ad-hoc
     Agent: Antigravity"
     ```
+
+---
+
+## 2026-05-24 — `npm ci` Fails with "Missing from lock file" for Optional Native Deps
+
+*   **Problem:** CI failed with `npm error Missing: @emnapi/runtime@1.10.0 from lock file` and `npm error Missing: @emnapi/core@1.10.0 from lock file` during `npm ci`.
+*   **Root Cause:** Regenerating `package-lock.json` with `npm install` on a machine that already has `node_modules` skips resolving optional transitive native dependencies (cpu/wasm32-specific packages). The lock file ends up referencing these packages in the root metadata but missing their `"node_modules/@scope/name"` entries in the packages map.
+*   **Fix:** Always delete both `node_modules` AND `package-lock.json` before running `npm install` when regenerating the lockfile, to force full resolution of all optional transitive deps:
+    ```bash
+    rm -rf node_modules package-lock.json && npm install
+    ```
