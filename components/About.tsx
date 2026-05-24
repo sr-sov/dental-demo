@@ -22,13 +22,13 @@ export default function About() {
               About Dr. Sarah
             </span>
             <h2 className="font-serif text-3xl font-medium tracking-tight text-foreground md:text-4xl text-pretty leading-tight">
-              I started this clinic because I wanted to slow things down.
+              I started this clinic to treat patients like people, not numbers on a spreadsheet.
             </h2>
             <p className="text-sm md:text-base leading-relaxed text-foreground-muted">
-              After eight years in high-volume corporate clinics, I opened Prairie Oak so I could spend the time each patient actually needs.
+              After years of working in high-volume corporate clinics, I realized dental care had lost its humanity. Appointments were rushed, patients were treated like transaction entries, and clinical spaces felt cold and intimidating. I founded Prairie Oak to build a different kind of practice.
             </p>
             <p className="text-sm md:text-base leading-relaxed text-foreground-muted">
-              We’re a small, locally-owned team. We won’t hand you a printed treatment plan until we’ve walked through every line of it with you.
+              Our boutique studio is designed to look and feel like a modern Alberta home, complete with warm wood accents and a cozy fireplace lobby. We are a small, locally-owned team focused on long-term relationships. Before we suggest any treatment, we sit down with you to walk through every detail so you feel in complete control of your care.
             </p>
             
             <div className="rounded-2xl bg-surface-alt p-5 border border-line max-w-md">
