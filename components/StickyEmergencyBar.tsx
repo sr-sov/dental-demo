@@ -20,7 +20,7 @@ export default function StickyEmergencyBar() {
 
   return (
     <div
-      className={`fixed bottom-4 left-4 right-4 z-40 md:hidden rounded-2xl bg-surface-emphasis p-3 shadow-2xl border border-white/5 transition-all duration-300 ${
+      className={`fixed bottom-4 left-4 right-4 z-40 md:hidden rounded-2xl bg-surface-emphasis p-3 shadow-2xl border border-white/5 transition-all duration-300 motion-reduce:transition-none ${
         visible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'
       }`}
       style={{ transitionProperty: 'transform, opacity' }}

@@ -48,7 +48,7 @@ export default function Reviews() {
           {reviews.map((r) => (
             <div
               key={r.name}
-              className="flex flex-col justify-between rounded-2xl bg-white border border-line p-6 shadow-sm hover:translate-y-[-2px] hover:shadow-md transition-all duration-200"
+              className="flex flex-col justify-between rounded-2xl bg-white border border-line p-6 shadow-sm hover:translate-y-[-2px] hover:shadow-md transition-all duration-200 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
               <div className="space-y-4">
                 <div className="text-gold text-sm">★★★★★</div>
@@ -62,9 +62,9 @@ export default function Reviews() {
                   {r.name.split(' ').map((s) => s[0]).join('')}
                 </div>
                 <div>
-                  <h3 className="font-display font-semibold text-xs text-foreground">
+                  <h4 className="font-display font-semibold text-xs text-foreground">
                     {r.name}
-                  </h3>
+                  </h4>
                   <p className="text-[10px] text-foreground-subtle leading-normal mt-0.5">
                     {r.sub}
                   </p>

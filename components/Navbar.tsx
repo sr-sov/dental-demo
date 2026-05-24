@@ -32,7 +32,7 @@ export default function Navbar({ ctaText }: NavbarProps) {
 
   return (
     <header
-      className="sticky top-0 z-40 w-full transition-all duration-200"
+      className="sticky top-0 z-40 w-full transition-all duration-200 motion-reduce:transition-none"
       style={{
         backgroundColor: scrolled ? 'rgba(246, 241, 232, 0.92)' : 'transparent',
         borderBottom: scrolled ? '1px solid #E5DCC8' : '1px solid transparent',
@@ -75,7 +75,7 @@ export default function Navbar({ ctaText }: NavbarProps) {
 
             <button
               onClick={scrollToForm}
-              className="rounded-xl bg-accent px-4 py-2 text-base font-bold text-white shadow-[0_6px_18px_rgba(217,119,87,0.25)] hover:brightness-[1.05] transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-accent cursor-pointer"
+              className="rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-white shadow-[0_6px_18px_rgba(217,119,87,0.25)] hover:brightness-[1.05] transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-accent cursor-pointer"
             >
               {ctaText}
             </button>
@@ -103,7 +103,7 @@ export default function Navbar({ ctaText }: NavbarProps) {
 
       {/* Mobile Menu dropdown sheet */}
       <div
-        className={`overflow-hidden transition-all duration-300 md:hidden bg-surface border-b border-line ${
+        className={`overflow-hidden transition-all duration-300 motion-reduce:transition-none md:hidden bg-surface border-b border-line ${
           mobileOpen ? 'max-h-[500px] opacity-100 py-3' : 'max-h-0 opacity-0'
         }`}
         style={{ transitionProperty: 'max-height, opacity' }}
@@ -123,9 +123,9 @@ export default function Navbar({ ctaText }: NavbarProps) {
           <a
             href="tel:+15875550142"
             onClick={() => setMobileOpen(false)}
-            className="flex items-center gap-2 py-4 text-foreground font-bold text-base"
+            className="flex items-center gap-2 py-4 text-accent font-semibold text-base"
           >
-            <span className="text-accent">📞</span> (587) 555-0142
+            📞 (587) 555-0142
           </a>
         </nav>
       </div>

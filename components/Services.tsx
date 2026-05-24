@@ -56,7 +56,7 @@ export default function Services() {
             return (
               <div
                 key={s.title}
-                className="rounded-2xl bg-white border border-line overflow-hidden transition-all duration-200"
+                className="rounded-2xl bg-white border border-line overflow-hidden transition-all duration-200 motion-reduce:transition-none"
                 style={{
                   boxShadow: open ? '0 14px 36px rgba(0,0,0,0.06)' : 'none',
                 }}
@@ -75,7 +75,7 @@ export default function Services() {
                     {s.title}
                   </div>
                   <div 
-                    className="absolute top-6 right-6 h-8 w-8 rounded-full bg-surface/40 flex items-center justify-center text-foreground transition-transform duration-200"
+                    className="absolute top-6 right-6 h-8 w-8 rounded-full bg-surface/40 flex items-center justify-center text-foreground transition-transform duration-200 motion-reduce:transition-none"
                     style={{ transform: open ? 'rotate(45deg)' : 'rotate(0)' }}
                   >
                     ➕
@@ -84,7 +84,7 @@ export default function Services() {
 
                 <div
                   id={`service-panel-${i}`}
-                  className="overflow-hidden transition-all duration-300"
+                  className="overflow-hidden transition-all duration-300 motion-reduce:transition-none"
                   style={{
                     maxHeight: open ? '320px' : '0',
                     borderTop: open ? '1px solid #E5DCC8' : '1px solid transparent',
