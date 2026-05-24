@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useTransition } from 'react';
+import { useState } from 'react';
+import CalendlyEmbed from './CalendlyEmbed';
 
 export default function BookingForm() {
-  const [isPending, startTransition] = useTransition();
-  const [success, setSuccess] = useState(false);
+  const [step, setStep] = useState<'intake' | 'schedule' | 'success'>('intake');
   const [comforts, setComforts] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     fullName: '',
@@ -20,33 +20,45 @@ export default function BookingForm() {
     urgentEmergency: false,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleContinueToSchedule = (e: React.FormEvent) => {
     e.preventDefault();
-    startTransition(async () => {
-      // Mock Server Action Submit Delay
-      await new Promise((res) => setTimeout(res, 800));
-      
-      const list: string[] = [];
-      if (formData.comfortBlanket) list.push('Weighted Blanket');
-      if (formData.comfortHeadphones) list.push('Noise-Canceling Headphones');
-      if (formData.comfortScreen) list.push('Ceiling Streaming Screen');
-      if (formData.comfortSedation) list.push('Sedation Options');
-      
-      setComforts(list);
-      setSuccess(true);
-    });
+    
+    const list: string[] = [];
+    if (formData.comfortBlanket) list.push('Weighted Blanket');
+    if (formData.comfortHeadphones) list.push('Noise-Canceling Headphones');
+    if (formData.comfortScreen) list.push('Ceiling Streaming Screen');
+    if (formData.comfortSedation) list.push('Sedation Options');
+    
+    setComforts(list);
+    setStep('schedule');
+  };
+
+  // Serialize Comfort Selections for Calendly Custom Answer Prefill
+  const serializePrefillAnswers = () => {
+    const answers: Record<string, string> = {};
+    const selections = [...comforts];
+    if (formData.directBilling) {
+      selections.unshift('Direct Insurance Billing Requested');
+    }
+    if (formData.urgentEmergency) {
+      selections.unshift('URGENT Same-Day Slot Requested');
+    }
+    
+    // Map serialized comfort choices to 'a1' (Calendly's first custom field placeholder)
+    answers.a1 = selections.join(' | ') || 'None';
+    return answers;
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto rounded-3xl bg-white p-6 shadow-xl border border-wc-line md:p-8">
-      {!success ? (
-        <form onSubmit={handleSubmit} className="space-y-5">
+    <div className="w-full max-w-2xl mx-auto rounded-3xl bg-white p-6 shadow-xl border border-wc-line md:p-8 transition-all duration-300">
+      {step === 'intake' && (
+        <form onSubmit={handleContinueToSchedule} className="space-y-5">
           <div>
             <h3 className="font-serif text-2xl font-semibold text-wc-ink">
               Request an Appointment
             </h3>
             <p className="text-sm text-wc-ink-soft mt-1 leading-relaxed">
-              Take a moment to customize your comfort choices. We’ll review and contact you to confirm.
+              Customize your complimentary comfort preferences first. Next, you will select your exact time slot instantly.
             </p>
           </div>
 
@@ -194,37 +206,67 @@ export default function BookingForm() {
             </div>
           </div>
 
-          {/* Submit Button */}
+          {/* Continue Button */}
           <div className="pt-2">
             <button
               type="submit"
-              disabled={isPending}
-              className="w-full rounded-xl bg-wc-accent py-3.5 text-sm font-semibold text-white hover:brightness-[1.05] transition disabled:opacity-50 active:scale-[0.98] cursor-pointer"
+              className="w-full rounded-xl bg-wc-accent py-3.5 text-sm font-semibold text-white hover:brightness-[1.05] transition active:scale-[0.98] cursor-pointer"
             >
-              {isPending ? 'Sending request…' : 'Submit request'}
+              Choose Your Time Slot ➔
             </button>
           </div>
         </form>
-      ) : (
-        <div className="text-center py-8 space-y-4">
+      )}
+
+      {step === 'schedule' && (
+        <div className="space-y-4">
+          <div className="flex items-center justify-between pb-2 border-b border-wc-line">
+            <div>
+              <span className="text-xs font-semibold text-wc-accent uppercase tracking-wider">Step 2 of 2</span>
+              <h3 className="font-serif text-xl font-semibold text-wc-ink">Instant Scheduling</h3>
+            </div>
+            <button
+              onClick={() => setStep('intake')}
+              className="text-xs font-semibold text-wc-ink hover:text-wc-accent transition cursor-pointer"
+            >
+              ⬅ Back to details
+            </button>
+          </div>
+          
+          <CalendlyEmbed
+            url="https://calendly.com/prairie-oak/general-care" // Demo general booking URL
+            prefill={{
+              name: formData.fullName,
+              email: formData.email,
+              phone: formData.phone,
+              customAnswers: serializePrefillAnswers(),
+            }}
+            theme="light"
+            onBookingComplete={() => setStep('success')}
+          />
+        </div>
+      )}
+
+      {step === 'success' && (
+        <div className="text-center py-8 space-y-4 animate-fade-in">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-wc-accent-soft text-wc-accent text-2xl font-bold">
             ✓
           </div>
           <h3 className="font-serif text-2xl font-semibold text-wc-ink">
-            Intake Request Submitted
+            Appointment Secured!
           </h3>
           <p className="text-sm text-wc-ink-soft max-w-sm mx-auto leading-relaxed">
-            Thank you, <b>{formData.fullName}</b>! We received your booking request. Our Calgary team will call or text you shortly to finalize your slot.
+            Thank you, <b>{formData.fullName}</b>! Your time slot has been successfully scheduled. We have pre-registered your details and comfort preferences.
           </p>
 
           {comforts.length > 0 && (
-            <div className="rounded-xl bg-wc-bg/30 p-3 max-w-sm mx-auto text-xs text-wc-ink-soft space-y-1.5 border border-wc-line">
+            <div className="rounded-xl bg-wc-bg/30 p-4 max-w-sm mx-auto text-xs text-wc-ink-soft space-y-2.5 border border-wc-line">
               <span className="font-bold text-wc-ink block uppercase tracking-wider text-[10px]">
-                We’ve Reserved Your Comfort Items
+                🌸 Comfort Options Reserved For Your Visit:
               </span>
-              <div className="flex flex-wrap gap-1.5 justify-center mt-1">
+              <div className="flex flex-wrap gap-1.5 justify-center">
                 {comforts.map((item) => (
-                  <span key={item} className="bg-white border border-wc-line px-2 py-0.5 rounded-full font-medium">
+                  <span key={item} className="bg-white border border-wc-line px-2.5 py-1 rounded-full font-medium">
                     🌸 {item}
                   </span>
                 ))}
@@ -232,18 +274,33 @@ export default function BookingForm() {
             </div>
           )}
 
-          {formData.urgentEmergency && (
-            <div className="bg-wc-accent-soft border border-wc-accent/25 rounded-xl p-3 max-w-sm mx-auto text-xs font-semibold text-wc-accent">
-              ⚠️ Same-day emergency prioritisation active. We are preparing our next open treatment room slot for you.
+          {formData.directBilling && (
+            <div className="bg-wc-bg-alt/50 border border-wc-line rounded-xl p-3 max-w-sm mx-auto text-xs font-medium text-wc-ink-soft">
+              💳 Direct Insurance Billing has been flagged. Please bring your insurance card to your appointment.
             </div>
           )}
 
           <div className="pt-4">
             <button
-              onClick={() => setSuccess(false)}
+              onClick={() => {
+                setFormData({
+                  fullName: '',
+                  email: '',
+                  phone: '',
+                  clinicalCategory: 'preventive',
+                  preferredTime: 'morning',
+                  directBilling: true,
+                  comfortBlanket: false,
+                  comfortHeadphones: false,
+                  comfortScreen: false,
+                  comfortSedation: false,
+                  urgentEmergency: false,
+                });
+                setStep('intake');
+              }}
               className="rounded-xl bg-wc-ink px-6 py-2.5 text-sm font-semibold text-white hover:brightness-[1.1] transition cursor-pointer"
             >
-              Reset Form
+              Book Another Appointment
             </button>
           </div>
         </div>
