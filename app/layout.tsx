@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Sora, Manrope, Crimson_Pro } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const sora = Sora({
@@ -40,7 +41,10 @@ export default function RootLayout({
       lang="en"
       className={`${sora.variable} ${manrope.variable} ${crimsonPro.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
