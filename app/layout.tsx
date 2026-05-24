@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, Manrope, Crimson_Pro } from "next/font/google";
 import "./globals.css";
+import { VercelProviders } from "@/components/VercelProviders";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -40,7 +41,9 @@ export default function RootLayout({
       lang="en"
       className={`${sora.variable} ${manrope.variable} ${crimsonPro.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <VercelProviders>{children}</VercelProviders>
+      </body>
     </html>
   );
 }
