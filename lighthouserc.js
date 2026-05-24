@@ -4,6 +4,9 @@ const config = {
       startServerCommand: "npm run start",
       url: ["http://localhost:3000"],
       numberOfRuns: 3,
+      settings: {
+        chromeFlags: "--no-sandbox --disable-gpu",
+      },
     },
     assert: {
       assertions: {
