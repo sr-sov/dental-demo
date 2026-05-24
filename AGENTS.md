@@ -20,3 +20,33 @@ After regeneration, verify with:
 node -e "const fs = require('fs'); const lock = JSON.parse(fs.readFileSync('package-lock.json','utf8')); const p = lock.packages; const missing = ['@emnapi/core','@emnapi/runtime'].filter(n => !p['node_modules/'+n]); if (missing.length) { console.error('MISSING from lockfile:', missing); process.exit(1) } else { console.log('Lockfile OK — all native deps resolved') }"
 ```
 <!-- END:lockfile-rules -->
+
+<!-- BEGIN:worktree-rules -->
+# Worktree Placement
+
+Use sibling-level dirs OUTSIDE the project tree:
+```bash
+git worktree add ~/dental-demo-feat-X -b feat-X
+```
+Nested worktrees (`.worktrees/`) may crash Turbopack `npm run build` with Bus error. If it happens, `git worktree move .worktrees/feat-X ~/dental-demo-feat-X`.
+<!-- END:worktree-rules -->
+
+<!-- BEGIN:lighthouse-ci -->
+# Lighthouse CI — CI-First
+
+Never run `lhci autorun` locally in WSL2 (Chrome port conflicts). Push branch → open PR → check Checks tab.
+
+Best-practices assertion at 0.85 (not 0.9) — Calendly iframe causes unavoidable `inspector-issues` + `third-party-cookies`. This is a known, accepted tradeoff.
+
+`VercelProviders` MUST guard behind `process.env.VERCEL` or `errors-in-console` fails from 404 script injection.
+<!-- END:lighthouse-ci -->
+
+<!-- BEGIN:lint-rules -->
+# ESLint — Third-Party Noise
+
+`.agents/` scripts produce 118+ lint warnings. Already excluded via `globalIgnores` in `eslint.config.mjs`. If fresh clone lacks it, add:
+```js
+".agents/**",
+```
+Verify: `npm run lint` exits 0 with zero warnings.
+<!-- END:lint-rules -->
