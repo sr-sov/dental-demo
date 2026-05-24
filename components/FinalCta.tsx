@@ -1,4 +1,5 @@
 import BookingForm from './BookingForm';
+import { PhoneLink } from '@/components/ui';
 
 export default function FinalCta() {
   return (
@@ -16,12 +17,11 @@ export default function FinalCta() {
             Most new patients in Calgary are seen within the same week. Online intake request takes about 4 minutes.
           </p>
           <div className="pt-2">
-            <a
-              href="tel:+15875550142"
+            <PhoneLink
+              number="+15875550142"
+              display="Call (587) 555-0142"
               className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-transparent px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition"
-            >
-              <span aria-hidden="true">📞</span> Call (587) 555-0142
-            </a>
+            />
           </div>
         </div>
 

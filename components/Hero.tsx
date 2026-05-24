@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { PhoneLink } from '@/components/ui';
 
 interface HeroProps {
   ctaText: string;
@@ -45,15 +46,13 @@ export default function Hero({ ctaText }: HeroProps) {
                   <span>{ctaText}</span>
                   <span>➔</span>
                 </a>
-                <a
-                  href="tel:+15875550142"
+                <PhoneLink
+                  number="+158****0142"
+                  display="(587) 555-0142"
                   className="rounded-xl bg-white border border-line px-5 py-3.5 text-sm font-semibold text-foreground hover:bg-surface-alt/50 transition focus-visible:outline-2 focus-visible:outline-accent flex justify-between items-center gap-2"
                 >
-                  <span className="flex items-center gap-2 text-foreground font-bold">
-                    <span className="text-accent">📞</span> (587) 555-0142
-                  </span>
                   <span className="text-xs text-foreground-subtle">Same-day</span>
-                </a>
+                </PhoneLink>
               </div>
               <div className="flex items-center gap-2 text-xs text-foreground-muted">
                 <span className="text-gold text-lg">★★★★★</span>

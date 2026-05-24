@@ -1,4 +1,5 @@
 'use client';
+import { PhoneLink } from '@/components/ui';
 
 import { useState, useEffect } from 'react';
 
@@ -26,7 +27,7 @@ export default function StickyEmergencyBar() {
       style={{ transitionProperty: 'transform, opacity' }}
     >
       <div className="flex items-center justify-between gap-3">
-        <a href="tel:+15875550142" className="flex items-center gap-3">
+<PhoneLink number="+158****0142" display="(587) 555-0142" className="flex items-center gap-3">
           <div aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white font-bold">
             📞
           </div>
@@ -34,7 +35,7 @@ export default function StickyEmergencyBar() {
             <h4 className="text-xs font-bold text-white leading-tight">Emergency? Call now</h4>
             <p className="text-[10px] text-white/75 mt-0.5">Same-day appointment guaranteed</p>
           </div>
-        </a>
+        </PhoneLink>
         <button
           onClick={scrollToForm}
           className="rounded-xl bg-accent px-4 py-2 text-xs font-bold text-white hover:brightness-[1.05] transition active:scale-[0.98] cursor-pointer"

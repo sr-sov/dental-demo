@@ -1,4 +1,5 @@
 'use client';
+import { PhoneLink } from '@/components/ui';
 
 import { useState, useEffect } from 'react';
 
@@ -66,12 +67,11 @@ export default function Navbar({ ctaText }: NavbarProps) {
 
           {/* Right side CTAs */}
           <div className="flex items-center gap-4">
-            <a 
-              href="tel:+15875550142" 
+<PhoneLink 
+              number="+158****0142"
+              display="(587) 555-0142"
               className="hidden lg:flex items-center gap-2 font-display text-sm font-semibold text-foreground/90 hover:text-foreground transition focus-visible:outline-2 focus-visible:outline-accent"
-            >
-              <span aria-hidden="true">📞</span> (587) 555-0142
-            </a>
+            />
 
             <button
               onClick={scrollToForm}
@@ -120,13 +120,12 @@ export default function Navbar({ ctaText }: NavbarProps) {
               <span className="text-foreground-subtle" aria-hidden="true">➔</span>
             </a>
           ))}
-          <a
-            href="tel:+15875550142"
+<PhoneLink
+            number="+158****0142"
+            display="(587) 555-0142"
             onClick={() => setMobileOpen(false)}
             className="flex items-center gap-2 py-4 text-accent font-semibold text-base"
-          >
-            <span aria-hidden="true">📞</span> (587) 555-0142
-          </a>
+          />
         </nav>
       </div>
     </header>

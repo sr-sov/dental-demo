@@ -1,3 +1,5 @@
+import { PhoneLink } from '@/components/ui';
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -40,8 +42,8 @@ export default function Footer() {
               Get in Touch
             </h5>
             <ul className="space-y-2 text-xs font-semibold text-foreground-muted">
-              <li><a href="tel:+15875550142" className="hover:text-accent transition"><span aria-hidden="true">📞</span> (587) 555-0142</a></li>
-              <li><a href="sms:+15875550142" className="hover:text-accent transition"><span aria-hidden="true">💬</span> Text Us: (587) 555-0142</a></li>
+              <li><PhoneLink number="+158****0142" display="(587) 555-0142" className="hover:text-accent transition" /></li>
+              <li><a href="sms:+158****0142" className="hover:text-accent transition"><span aria-hidden="true">💬</span> Text Us: (587) 555-0142</a></li>
               <li><a href="#visit" className="hover:text-foreground transition"><span aria-hidden="true">📍</span> 14025 Macleod Trail SE</a></li>
             </ul>
           </div>
