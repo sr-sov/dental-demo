@@ -67,6 +67,8 @@ export default function Location() {
               src="/office_map.png"
               alt="Map showing clinic location at 14025 Macleod Trail SE, South Calgary"
               fill
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              quality={70}
               className="object-cover"
             />
           </div>
