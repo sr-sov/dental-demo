@@ -23,14 +23,14 @@ export default function Reviews() {
   ];
 
   return (
-    <section className="bg-wc-bg py-14 lg:py-20" id="reviews">
+    <section className="bg-surface py-14 lg:py-20" id="reviews">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-10">
           <div>
-            <span className="font-display text-xs font-semibold tracking-wider text-wc-accent uppercase block mb-3">
+            <span className="font-display text-xs font-semibold tracking-wider text-accent uppercase block mb-3">
               What patients say
             </span>
-            <h2 className="font-serif text-3xl font-medium tracking-tight text-wc-ink md:text-4xl text-pretty leading-tight">
+            <h2 className="font-serif text-3xl font-medium tracking-tight text-foreground md:text-4xl text-pretty leading-tight">
               312 Google reviews. Here are a few.
             </h2>
           </div>
@@ -38,7 +38,7 @@ export default function Reviews() {
             href="https://google.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-display font-semibold text-sm text-wc-ink border-b border-wc-ink pb-0.5 hover:gap-4 transition whitespace-nowrap"
+            className="font-display font-semibold text-sm text-foreground border-b border-foreground pb-0.5 hover:gap-4 transition whitespace-nowrap"
           >
             Read all reviews ➔
           </a>
@@ -48,24 +48,24 @@ export default function Reviews() {
           {reviews.map((r) => (
             <div
               key={r.name}
-              className="flex flex-col justify-between rounded-2xl bg-white border border-wc-line p-6 shadow-sm hover:translate-y-[-2px] hover:shadow-md transition-all duration-200"
+              className="flex flex-col justify-between rounded-2xl bg-white border border-line p-6 shadow-sm hover:translate-y-[-2px] hover:shadow-md transition-all duration-200"
             >
               <div className="space-y-4">
-                <div className="text-wc-gold text-sm">★★★★★</div>
-                <p className="font-serif text-sm font-medium text-wc-ink leading-relaxed">
+                <div className="text-gold text-sm">★★★★★</div>
+                <p className="font-serif text-sm font-medium text-foreground leading-relaxed">
                   “{r.quote}”
                 </p>
               </div>
               
               <div className="flex items-center gap-3 mt-6">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-wc-accent-soft text-wc-accent text-xs font-bold font-display">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-accent text-xs font-bold font-display">
                   {r.name.split(' ').map((s) => s[0]).join('')}
                 </div>
                 <div>
-                  <h4 className="font-display font-semibold text-xs text-wc-ink">
+                  <h4 className="font-display font-semibold text-xs text-foreground">
                     {r.name}
                   </h4>
-                  <p className="text-[10px] text-wc-muted leading-normal mt-0.5">
+                  <p className="text-[10px] text-foreground-subtle leading-normal mt-0.5">
                     {r.sub}
                   </p>
                 </div>

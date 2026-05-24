@@ -39,13 +39,13 @@ export default function Services() {
   };
 
   return (
-    <section className="bg-wc-bg-alt py-14 lg:py-20" id="services">
+    <section className="bg-surface-alt py-14 lg:py-20" id="services">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-10">
-          <span className="font-display text-xs font-semibold tracking-wider text-wc-accent uppercase block mb-3">
+          <span className="font-display text-xs font-semibold tracking-wider text-accent uppercase block mb-3">
             Care, three ways
           </span>
-          <h2 className="font-serif text-3xl font-medium tracking-tight text-wc-ink md:text-4xl text-pretty max-w-2xl leading-tight">
+          <h2 className="font-serif text-3xl font-medium tracking-tight text-foreground md:text-4xl text-pretty max-w-2xl leading-tight">
             Whatever brought you in, there’s a path.
           </h2>
         </div>
@@ -56,26 +56,26 @@ export default function Services() {
             return (
               <div
                 key={s.title}
-                className="rounded-2xl bg-white border border-wc-line overflow-hidden transition-all duration-200"
+                className="rounded-2xl bg-white border border-line overflow-hidden transition-all duration-200"
                 style={{
                   boxShadow: open ? '0 14px 36px rgba(0,0,0,0.06)' : 'none',
                 }}
               >
                 <button
                   onClick={() => setExpanded(open ? null : i)}
-                  className="w-full text-left p-6 relative flex flex-col justify-between items-stretch cursor-pointer focus-visible:outline-wc-accent"
+                  className="w-full text-left p-6 relative flex flex-col justify-between items-stretch cursor-pointer focus-visible:outline-accent"
                   aria-expanded={open}
                   aria-controls={`service-panel-${i}`}
                 >
                   <div className="flex justify-between items-baseline mb-3">
-                    <span className="font-display text-xs font-semibold text-wc-accent">{s.cat}</span>
-                    <span className="text-xs italic text-wc-muted">{s.tag}</span>
+                    <span className="font-display text-xs font-semibold text-accent">{s.cat}</span>
+                    <span className="text-xs italic text-foreground-subtle">{s.tag}</span>
                   </div>
-                  <div className="font-serif text-xl font-semibold text-wc-ink pr-10">
+                  <div className="font-serif text-xl font-semibold text-foreground pr-10">
                     {s.title}
                   </div>
                   <div 
-                    className="absolute top-6 right-6 h-8 w-8 rounded-full bg-wc-bg/40 flex items-center justify-center text-wc-ink transition-transform duration-200"
+                    className="absolute top-6 right-6 h-8 w-8 rounded-full bg-surface/40 flex items-center justify-center text-foreground transition-transform duration-200"
                     style={{ transform: open ? 'rotate(45deg)' : 'rotate(0)' }}
                   >
                     ➕
@@ -92,15 +92,15 @@ export default function Services() {
                 >
                   <ul className="p-6 space-y-3">
                     {s.items.map((it) => (
-                      <li key={it} className="text-sm font-medium text-wc-ink-soft flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-wc-accent flex-shrink-0" />
+                      <li key={it} className="text-sm font-medium text-foreground-muted flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />
                         {it}
                       </li>
                     ))}
                   </ul>
                   <button 
                     onClick={scrollToForm} 
-                    className="inline-flex items-center gap-2 mx-6 mb-6 font-display font-semibold text-xs text-wc-ink border-b border-wc-ink pb-0.5 hover:gap-4 transition cursor-pointer"
+                    className="inline-flex items-center gap-2 mx-6 mb-6 font-display font-semibold text-xs text-foreground border-b border-foreground pb-0.5 hover:gap-4 transition cursor-pointer"
                   >
                     Learn more & book ➔
                   </button>

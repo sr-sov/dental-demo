@@ -38,28 +38,28 @@ export default function BookingForm() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto rounded-3xl bg-white p-6 shadow-xl border border-wc-line md:p-8">
+    <div className="w-full max-w-2xl mx-auto rounded-3xl bg-white p-6 shadow-xl border border-line md:p-8">
       {!success ? (
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <h3 className="font-serif text-2xl font-semibold text-wc-ink">
+            <h3 className="font-serif text-2xl font-semibold text-foreground">
               Request an Appointment
             </h3>
-            <p className="text-sm text-wc-ink-soft mt-1 leading-relaxed">
+            <p className="text-sm text-foreground-muted mt-1 leading-relaxed">
               Take a moment to customize your comfort choices. We’ll review and contact you to confirm.
             </p>
           </div>
 
           {/* Urgency Emergency Flag */}
-          <div className="flex items-center gap-3 p-3 bg-wc-accent-soft/50 rounded-xl border border-wc-accent/20">
+          <div className="flex items-center gap-3 p-3 bg-accent-soft/50 rounded-xl border border-accent/20">
             <input 
               type="checkbox" 
               id="urgentEmergency"
               checked={formData.urgentEmergency}
               onChange={(e) => setFormData({ ...formData, urgentEmergency: e.target.checked })}
-              className="h-4 w-4 rounded border-wc-line text-wc-accent focus:ring-wc-accent"
+              className="h-4 w-4 rounded border-line text-accent focus:ring-accent"
             />
-            <label htmlFor="urgentEmergency" className="text-xs font-semibold text-wc-ink cursor-pointer select-none">
+            <label htmlFor="urgentEmergency" className="text-xs font-semibold text-foreground cursor-pointer select-none">
               ⚠️ Sudden oral pain? Flag as an urgent emergency same-day request
             </label>
           </div>
@@ -67,40 +67,40 @@ export default function BookingForm() {
           {/* Intake fields */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="fullName" className="text-xs font-semibold text-wc-ink">Full Name</label>
+              <label htmlFor="fullName" className="text-xs font-semibold text-foreground">Full Name</label>
               <input
                 type="text"
                 id="fullName"
                 required
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                className="rounded-lg border border-wc-line px-3 py-2.5 text-sm text-wc-ink focus:border-wc-accent focus:ring-wc-accent focus:outline-none bg-wc-bg/10"
+                className="rounded-lg border border-line px-3 py-2.5 text-sm text-foreground focus:border-accent focus:ring-accent focus:outline-none bg-surface/10"
                 placeholder="Enter your name"
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="phone" className="text-xs font-semibold text-wc-ink">Phone Number</label>
+              <label htmlFor="phone" className="text-xs font-semibold text-foreground">Phone Number</label>
               <input
                 type="tel"
                 id="phone"
                 required
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="rounded-lg border border-wc-line px-3 py-2.5 text-sm text-wc-ink focus:border-wc-accent focus:ring-wc-accent focus:outline-none bg-wc-bg/10"
+                className="rounded-lg border border-line px-3 py-2.5 text-sm text-foreground focus:border-accent focus:ring-accent focus:outline-none bg-surface/10"
                 placeholder="(587) 555-0100"
               />
             </div>
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="email" className="text-xs font-semibold text-wc-ink">Email Address</label>
+            <label htmlFor="email" className="text-xs font-semibold text-foreground">Email Address</label>
             <input
               type="email"
               id="email"
               required
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="rounded-lg border border-wc-line px-3 py-2.5 text-sm text-wc-ink focus:border-wc-accent focus:ring-wc-accent focus:outline-none bg-wc-bg/10"
+              className="rounded-lg border border-line px-3 py-2.5 text-sm text-foreground focus:border-accent focus:ring-accent focus:outline-none bg-surface/10"
               placeholder="name@company.com"
             />
           </div>
@@ -108,12 +108,12 @@ export default function BookingForm() {
           {/* Preferred Slot & Care */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="clinicalCategory" className="text-xs font-semibold text-wc-ink">Care Path</label>
+              <label htmlFor="clinicalCategory" className="text-xs font-semibold text-foreground">Care Path</label>
               <select
                 id="clinicalCategory"
                 value={formData.clinicalCategory}
                 onChange={(e) => setFormData({ ...formData, clinicalCategory: e.target.value })}
-                className="rounded-lg border border-wc-line px-3 py-2.5 text-sm text-wc-ink focus:outline-none focus:border-wc-accent focus:ring-wc-accent bg-white"
+                className="rounded-lg border border-line px-3 py-2.5 text-sm text-foreground focus:outline-none focus:border-accent focus:ring-accent bg-white"
               >
                 <option value="preventive">General & Preventive</option>
                 <option value="restorative">Restorative & Emergency</option>
@@ -121,12 +121,12 @@ export default function BookingForm() {
               </select>
             </div>
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="preferredTime" className="text-xs font-semibold text-wc-ink">Best Time</label>
+              <label htmlFor="preferredTime" className="text-xs font-semibold text-foreground">Best Time</label>
               <select
                 id="preferredTime"
                 value={formData.preferredTime}
                 onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                className="rounded-lg border border-wc-line px-3 py-2.5 text-sm text-wc-ink focus:outline-none focus:border-wc-accent focus:ring-wc-accent bg-white"
+                className="rounded-lg border border-line px-3 py-2.5 text-sm text-foreground focus:outline-none focus:border-accent focus:ring-accent bg-white"
               >
                 <option value="morning">Morning (8 AM - 12 PM)</option>
                 <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
@@ -142,25 +142,25 @@ export default function BookingForm() {
               id="directBilling"
               checked={formData.directBilling}
               onChange={(e) => setFormData({ ...formData, directBilling: e.target.checked })}
-              className="h-4 w-4 rounded border-wc-line text-wc-accent focus:ring-wc-accent"
+              className="h-4 w-4 rounded border-line text-accent focus:ring-accent"
             />
-            <label htmlFor="directBilling" className="text-xs font-medium text-wc-ink-soft cursor-pointer select-none">
+            <label htmlFor="directBilling" className="text-xs font-medium text-foreground-muted cursor-pointer select-none">
               Yes, direct bill my Calgary corporate insurance (Blue Cross, Sun Life, Manulife, etc.)
             </label>
           </div>
 
           {/* Comfort Menu selection */}
-          <div className="rounded-xl border border-wc-line bg-wc-bg/20 p-4 space-y-3">
-            <span className="text-xs font-bold text-wc-ink uppercase tracking-wider block">
+          <div className="rounded-xl border border-line bg-surface/20 p-4 space-y-3">
+            <span className="text-xs font-bold text-foreground uppercase tracking-wider block">
               🌸 Anxiety-Free Comfort Menu (Complimentary)
             </span>
-            <div className="grid grid-cols-2 gap-2 text-xs text-wc-ink-soft">
+            <div className="grid grid-cols-2 gap-2 text-xs text-foreground-muted">
               <label className="flex items-center gap-2 cursor-pointer select-none">
                 <input 
                   type="checkbox"
                   checked={formData.comfortBlanket}
                   onChange={(e) => setFormData({ ...formData, comfortBlanket: e.target.checked })}
-                  className="rounded border-wc-line text-wc-accent focus:ring-wc-accent" 
+                  className="rounded border-line text-accent focus:ring-accent" 
                 />
                 Weighted Blanket
               </label>
@@ -169,7 +169,7 @@ export default function BookingForm() {
                   type="checkbox"
                   checked={formData.comfortHeadphones}
                   onChange={(e) => setFormData({ ...formData, comfortHeadphones: e.target.checked })}
-                  className="rounded border-wc-line text-wc-accent focus:ring-wc-accent" 
+                  className="rounded border-line text-accent focus:ring-accent" 
                 />
                 Noise-Canceling
               </label>
@@ -178,7 +178,7 @@ export default function BookingForm() {
                   type="checkbox"
                   checked={formData.comfortScreen}
                   onChange={(e) => setFormData({ ...formData, comfortScreen: e.target.checked })}
-                  className="rounded border-wc-line text-wc-accent focus:ring-wc-accent" 
+                  className="rounded border-line text-accent focus:ring-accent" 
                 />
                 Ceiling Screen Stream
               </label>
@@ -187,7 +187,7 @@ export default function BookingForm() {
                   type="checkbox"
                   checked={formData.comfortSedation}
                   onChange={(e) => setFormData({ ...formData, comfortSedation: e.target.checked })}
-                  className="rounded border-wc-line text-wc-accent focus:ring-wc-accent" 
+                  className="rounded border-line text-accent focus:ring-accent" 
                 />
                 Mild Sedation options
               </label>
@@ -199,7 +199,7 @@ export default function BookingForm() {
             <button
               type="submit"
               disabled={isPending}
-              className="w-full rounded-xl bg-wc-accent py-3.5 text-sm font-semibold text-white hover:brightness-[1.05] transition disabled:opacity-50 active:scale-[0.98] cursor-pointer"
+              className="w-full rounded-xl bg-accent py-3.5 text-sm font-semibold text-white hover:brightness-[1.05] transition disabled:opacity-50 active:scale-[0.98] cursor-pointer"
             >
               {isPending ? 'Sending request…' : 'Submit request'}
             </button>
@@ -207,24 +207,24 @@ export default function BookingForm() {
         </form>
       ) : (
         <div className="text-center py-8 space-y-4">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-wc-accent-soft text-wc-accent text-2xl font-bold">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent-soft text-accent text-2xl font-bold">
             ✓
           </div>
-          <h3 className="font-serif text-2xl font-semibold text-wc-ink">
+          <h3 className="font-serif text-2xl font-semibold text-foreground">
             Intake Request Submitted
           </h3>
-          <p className="text-sm text-wc-ink-soft max-w-sm mx-auto leading-relaxed">
+          <p className="text-sm text-foreground-muted max-w-sm mx-auto leading-relaxed">
             Thank you, <b>{formData.fullName}</b>! We received your booking request. Our Calgary team will call or text you shortly to finalize your slot.
           </p>
 
           {comforts.length > 0 && (
-            <div className="rounded-xl bg-wc-bg/30 p-3 max-w-sm mx-auto text-xs text-wc-ink-soft space-y-1.5 border border-wc-line">
-              <span className="font-bold text-wc-ink block uppercase tracking-wider text-[10px]">
+            <div className="rounded-xl bg-surface/30 p-3 max-w-sm mx-auto text-xs text-foreground-muted space-y-1.5 border border-line">
+              <span className="font-bold text-foreground block uppercase tracking-wider text-[10px]">
                 We’ve Reserved Your Comfort Items
               </span>
               <div className="flex flex-wrap gap-1.5 justify-center mt-1">
                 {comforts.map((item) => (
-                  <span key={item} className="bg-white border border-wc-line px-2 py-0.5 rounded-full font-medium">
+                  <span key={item} className="bg-white border border-line px-2 py-0.5 rounded-full font-medium">
                     🌸 {item}
                   </span>
                 ))}
@@ -233,7 +233,7 @@ export default function BookingForm() {
           )}
 
           {formData.urgentEmergency && (
-            <div className="bg-wc-accent-soft border border-wc-accent/25 rounded-xl p-3 max-w-sm mx-auto text-xs font-semibold text-wc-accent">
+            <div className="bg-accent-soft border border-accent/25 rounded-xl p-3 max-w-sm mx-auto text-xs font-semibold text-accent">
               ⚠️ Same-day emergency prioritisation active. We are preparing our next open treatment room slot for you.
             </div>
           )}
@@ -241,7 +241,7 @@ export default function BookingForm() {
           <div className="pt-4">
             <button
               onClick={() => setSuccess(false)}
-              className="rounded-xl bg-wc-ink px-6 py-2.5 text-sm font-semibold text-white hover:brightness-[1.1] transition cursor-pointer"
+              className="rounded-xl bg-foreground px-6 py-2.5 text-sm font-semibold text-white hover:brightness-[1.1] transition cursor-pointer"
             >
               Reset Form
             </button>

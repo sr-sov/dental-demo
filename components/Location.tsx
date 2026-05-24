@@ -12,17 +12,17 @@ export default function Location() {
   ];
 
   return (
-    <section className="bg-wc-bg py-14 lg:py-20" id="visit">
+    <section className="bg-surface py-14 lg:py-20" id="visit">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-16">
           
           {/* Studio info and Hours */}
           <div className="lg:col-span-6 space-y-8">
             <div>
-              <span className="font-display text-xs font-semibold tracking-wider text-wc-accent uppercase block mb-3">
+              <span className="font-display text-xs font-semibold tracking-wider text-accent uppercase block mb-3">
                 Visit us
               </span>
-              <h2 className="font-serif text-3xl font-medium tracking-tight text-wc-ink md:text-4xl text-pretty leading-tight">
+              <h2 className="font-serif text-3xl font-medium tracking-tight text-foreground md:text-4xl text-pretty leading-tight">
                 South Calgary, by the ridge.
               </h2>
             </div>
@@ -32,10 +32,10 @@ export default function Location() {
               <div className="flex gap-4 items-start">
                 <div className="text-xl mt-0.5">📍</div>
                 <div>
-                  <h4 className="font-display font-semibold text-sm text-wc-ink">
+                  <h4 className="font-display font-semibold text-sm text-foreground">
                     14025 Macleod Trail SE
                   </h4>
-                  <p className="text-xs text-wc-muted mt-1 leading-relaxed">
+                  <p className="text-xs text-foreground-subtle mt-1 leading-relaxed">
                     Calgary, AB T2Y 0G6 · Free on-site parking
                   </p>
                 </div>
@@ -45,14 +45,14 @@ export default function Location() {
               <div className="flex gap-4 items-start">
                 <div className="text-xl mt-0.5">🕒</div>
                 <div className="flex-1 max-w-sm">
-                  <h4 className="font-display font-semibold text-sm text-wc-ink mb-3">
+                  <h4 className="font-display font-semibold text-sm text-foreground mb-3">
                     Studio Hours
                   </h4>
                   <dl className="grid grid-cols-2 gap-y-2 text-xs">
                     {hours.map((item) => (
                       <div key={item.d} className="contents">
-                        <dt className="text-wc-ink-soft font-medium">{item.d}</dt>
-                        <dd className="text-wc-muted text-right">{item.h}</dd>
+                        <dt className="text-foreground-muted font-medium">{item.d}</dt>
+                        <dd className="text-foreground-subtle text-right">{item.h}</dd>
                       </div>
                     ))}
                   </dl>
@@ -62,7 +62,7 @@ export default function Location() {
           </div>
 
           {/* Stylized Location Map Photo */}
-          <div className="lg:col-span-6 relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-wc-line">
+          <div className="lg:col-span-6 relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-line">
             <Image
               src="/office_map.png"
               alt="Map showing clinic location at 14025 Macleod Trail SE, South Calgary"

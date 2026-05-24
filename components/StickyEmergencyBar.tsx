@@ -20,14 +20,14 @@ export default function StickyEmergencyBar() {
 
   return (
     <div
-      className={`fixed bottom-4 left-4 right-4 z-40 md:hidden rounded-2xl bg-wc-deep p-3 shadow-2xl border border-white/5 transition-all duration-300 ${
+      className={`fixed bottom-4 left-4 right-4 z-40 md:hidden rounded-2xl bg-surface-emphasis p-3 shadow-2xl border border-white/5 transition-all duration-300 ${
         visible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'
       }`}
       style={{ transitionProperty: 'transform, opacity' }}
     >
       <div className="flex items-center justify-between gap-3">
         <a href="tel:+15875550142" className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-wc-accent text-white font-bold">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white font-bold">
             📞
           </div>
           <div>
@@ -37,7 +37,7 @@ export default function StickyEmergencyBar() {
         </a>
         <button
           onClick={scrollToForm}
-          className="rounded-xl bg-wc-accent px-4 py-2 text-xs font-bold text-white hover:brightness-[1.05] transition active:scale-[0.98] cursor-pointer"
+          className="rounded-xl bg-accent px-4 py-2 text-xs font-bold text-white hover:brightness-[1.05] transition active:scale-[0.98] cursor-pointer"
         >
           Book
         </button>

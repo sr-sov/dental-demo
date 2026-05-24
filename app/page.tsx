@@ -17,7 +17,7 @@ const CTA_TEXT = 'Request an appointment';
 
 export default function WarmClinical() {
   return (
-    <div className="min-h-screen bg-wc-bg text-wc-ink font-body selection:bg-wc-accent-soft selection:text-wc-accent">
+    <div className="min-h-screen bg-surface text-foreground font-body selection:bg-accent-soft selection:text-accent">
       <Navbar ctaText={CTA_TEXT} />
       
       <main>

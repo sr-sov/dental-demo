@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Section, SectionHeader, TextLink, Disclosure } from '@/components/ui';
 
 interface FaqItem {
   q: string;
@@ -30,69 +31,30 @@ export default function FaqSection() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-wc-bg-alt py-14 lg:py-20" id="faq">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
-          {/* FAQ Head */}
-          <div className="lg:col-span-5 space-y-4">
-            <span className="font-display text-xs font-semibold tracking-wider text-wc-accent uppercase block">
-              Common questions
-            </span>
-            <h2 className="font-serif text-3xl font-medium tracking-tight text-wc-ink md:text-4xl text-pretty leading-tight">
-              The things people usually ask, up front.
-            </h2>
-            <p className="text-sm leading-relaxed text-wc-ink-soft max-w-md">
-              If yours isn’t here, our Calgary front desk replies to texts within an hour during the day.
-            </p>
-            <div className="pt-2">
-              <a
-                href="sms:+15875550142"
-                className="inline-flex items-center gap-2 font-display font-semibold text-sm text-wc-ink border-b border-wc-ink pb-0.5 hover:gap-4 transition"
-              >
-                Text us a question ➔
-              </a>
-            </div>
-          </div>
-
-          {/* FAQ List */}
-          <div className="lg:col-span-7 divide-y divide-wc-line border-t border-b border-wc-line">
-            {FAQS.map((f, i) => {
-              const isOpen = open === i;
-              return (
-                <div key={f.q} className="py-4">
-                  <button
-                    onClick={() => setOpen(isOpen ? null : i)}
-                    className="w-full flex items-center justify-between text-left gap-4 py-2 font-serif text-lg font-semibold text-wc-ink focus-visible:outline-wc-accent cursor-pointer"
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-panel-${i}`}
-                  >
-                    <span>{f.q}</span>
-                    <span 
-                      className="flex h-7 w-7 items-center justify-center rounded-full bg-wc-bg/40 text-wc-ink transition-transform duration-200"
-                      style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0)' }}
-                    >
-                      ➕
-                    </span>
-                  </button>
-
-                  <div
-                    id={`faq-panel-${i}`}
-                    className="overflow-hidden transition-all duration-300"
-                    style={{
-                      maxHeight: isOpen ? '200px' : '0',
-                      opacity: isOpen ? 1 : 0,
-                    }}
-                  >
-                    <p className="text-sm leading-relaxed text-wc-ink-soft pt-2 pb-4 pr-10">
-                      {f.a}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+    <Section variant="alt" id="faq">
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
+        <div className="lg:col-span-5 space-y-4">
+          <SectionHeader
+            eyebrow="Common questions"
+            lede="If yours isn't here, our Calgary front desk replies to texts within an hour during the day."
+          >
+            The things people usually ask, up front.
+          </SectionHeader>
+          <TextLink href="sms:+15875550142">Text us a question</TextLink>
+        </div>
+        <div className="lg:col-span-7 divide-y divide-line border-t border-b border-line">
+          {FAQS.map((f, i) => (
+            <Disclosure
+              key={f.q}
+              summary={f.q}
+              open={open === i}
+              onOpenChange={(o) => setOpen(o ? i : null)}
+            >
+              {f.a}
+            </Disclosure>
+          ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
