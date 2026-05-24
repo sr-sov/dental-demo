@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Sora, Manrope, Crimson_Pro } from "next/font/google";
+import SkipNav from "@/components/SkipNav";
 import "./globals.css";
 import { VercelProviders } from "@/components/VercelProviders";
 
@@ -42,6 +43,7 @@ export default function RootLayout({
       className={`${sora.variable} ${manrope.variable} ${crimsonPro.variable}`}
     >
       <body>
+        <SkipNav />
         <VercelProviders>{children}</VercelProviders>
       </body>
     </html>
