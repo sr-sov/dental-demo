@@ -39,6 +39,8 @@ Never run `lhci autorun` locally in WSL2 (Chrome port conflicts). Push branch â†
 Best-practices assertion at 0.85 (not 0.9) â€” Calendly iframe causes unavoidable `inspector-issues` + `third-party-cookies`. This is a known, accepted tradeoff.
 
 `VercelProviders` MUST guard behind `process.env.VERCEL` or `errors-in-console` fails from 404 script injection.
+
+**Workflow YAML pitfall:** When extracting scores with Python in the `run:` block, use `python3 <<EOF` heredoc, NOT `python3 -c "..."`. YAML `|` blocks preserve indent literally, causing IndentationError in Python. Always add `shopt -s nullglob` before globbing `.lighthouseci/lhr-*.json` to handle missing files gracefully.
 <!-- END:lighthouse-ci -->
 
 <!-- BEGIN:lint-rules -->
