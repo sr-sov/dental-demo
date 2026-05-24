@@ -1,7 +1,6 @@
 const config = {
   ci: {
     collect: {
-      staticDistDir: ".next",
       startServerCommand: "npm run start",
       url: ["http://localhost:3000"],
       numberOfRuns: 3,
