@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 interface FaqItem {
   q: string;
@@ -28,6 +28,24 @@ const FAQS: FaqItem[] = [
 
 export default function FaqSection() {
   const [open, setOpen] = useState<number | null>(0);
+  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const handleKeyDown = (e: React.KeyboardEvent, i: number) => {
+    const count = FAQS.length;
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      buttonRefs.current[(i + 1) % count]?.focus();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      buttonRefs.current[(i - 1 + count) % count]?.focus();
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      buttonRefs.current[0]?.focus();
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      buttonRefs.current[count - 1]?.focus();
+    }
+  };
 
   return (
     <section className="bg-surface-alt py-14 lg:py-20" id="faq" role="region" aria-label="Frequently asked questions">
@@ -42,7 +60,7 @@ export default function FaqSection() {
               The things people usually ask, up front.
             </h2>
             <p className="text-sm leading-relaxed text-foreground-muted max-w-md">
-              If yours isn’t here, our Calgary front desk replies to texts within an hour during the day.
+              If yours isn't here, our Calgary front desk replies to texts within an hour during the day.
             </p>
             <div className="pt-2">
               <a
@@ -61,13 +79,15 @@ export default function FaqSection() {
               return (
                 <div key={f.q} className="py-4">
                   <button
+                    ref={(el) => { buttonRefs.current[i] = el; }}
                     onClick={() => setOpen(isOpen ? null : i)}
+                    onKeyDown={(e) => handleKeyDown(e, i)}
                     className="w-full flex items-center justify-between text-left gap-4 py-2 font-serif text-lg font-semibold text-foreground focus-visible:outline-accent cursor-pointer"
                     aria-expanded={isOpen}
                     aria-controls={`faq-panel-${i}`}
                   >
                     <span>{f.q}</span>
-                    <span 
+                    <span
                       aria-hidden="true"
                       className="flex h-7 w-7 items-center justify-center rounded-full bg-surface/40 text-foreground transition-transform duration-200 motion-reduce:transition-none"
                       style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0)' }}
@@ -78,6 +98,7 @@ export default function FaqSection() {
 
                   <div
                     id={`faq-panel-${i}`}
+                    aria-hidden={isOpen ? undefined : true}
                     className="overflow-hidden transition-all duration-300 motion-reduce:transition-none"
                     style={{
                       maxHeight: isOpen ? '200px' : '0',

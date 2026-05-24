@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 interface Service {
   cat: string;
@@ -14,7 +14,7 @@ const SERVICES: Service[] = [
     cat: '01',
     title: 'General & Preventive',
     tag: 'For every six months',
-    items: ['Checkups & digital X-rays', 'Cleanings & hygiene plans', "Kids’ first visits"],
+    items: ['Checkups & digital X-rays', 'Cleanings & hygiene plans', "Kids' first visits"],
   },
   {
     cat: '02',
@@ -25,17 +25,35 @@ const SERVICES: Service[] = [
   {
     cat: '03',
     title: 'Cosmetic & Aligners',
-    tag: "When you’re ready",
+    tag: "When you're ready",
     items: ['In-office laser whitening', 'Porcelain veneers', 'Invisalign® clear aligners'],
   },
 ];
 
 export default function Services() {
   const [expanded, setExpanded] = useState<number | null>(null);
+  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const scrollToForm = (e: React.MouseEvent) => {
     e.preventDefault();
     document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent, i: number) => {
+    const count = SERVICES.length;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      buttonRefs.current[(i + 1) % count]?.focus();
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      buttonRefs.current[(i - 1 + count) % count]?.focus();
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      buttonRefs.current[0]?.focus();
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      buttonRefs.current[count - 1]?.focus();
+    }
   };
 
   return (
@@ -46,7 +64,7 @@ export default function Services() {
             Care, three ways
           </span>
           <h2 className="font-serif text-3xl font-medium tracking-tight text-foreground md:text-4xl text-pretty max-w-2xl leading-tight">
-            Whatever brought you in, there’s a path.
+            Whatever brought you in, there's a path.
           </h2>
         </div>
 
@@ -62,7 +80,9 @@ export default function Services() {
                 }}
               >
                 <button
+                  ref={(el) => { buttonRefs.current[i] = el; }}
                   onClick={() => setExpanded(open ? null : i)}
+                  onKeyDown={(e) => handleKeyDown(e, i)}
                   className="w-full text-left p-6 relative flex flex-col justify-between items-stretch cursor-pointer focus-visible:outline-accent"
                   aria-expanded={open}
                   aria-controls={`service-panel-${i}`}
@@ -74,7 +94,7 @@ export default function Services() {
                   <div className="font-serif text-xl font-semibold text-foreground pr-10">
                     {s.title}
                   </div>
-                  <div 
+                  <div
                     aria-hidden="true"
                     className="absolute top-6 right-6 h-8 w-8 rounded-full bg-surface/40 flex items-center justify-center text-foreground transition-transform duration-200 motion-reduce:transition-none"
                     style={{ transform: open ? 'rotate(45deg)' : 'rotate(0)' }}
@@ -85,6 +105,7 @@ export default function Services() {
 
                 <div
                   id={`service-panel-${i}`}
+                  aria-hidden={open ? undefined : true}
                   className="overflow-hidden transition-all duration-300 motion-reduce:transition-none"
                   style={{
                     maxHeight: open ? '320px' : '0',
@@ -94,14 +115,14 @@ export default function Services() {
                   <ul className="p-6 space-y-3">
                     {s.items.map((it) => (
                       <li key={it} className="text-sm font-medium text-foreground-muted flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />
+                        <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />
                         {it}
                       </li>
                     ))}
                   </ul>
-                  <button 
-                    onClick={scrollToForm} 
-                    className="inline-flex items-center gap-2 mx-6 mb-6 font-display font-semibold text-xs text-foreground border-b border-foreground pb-0.5 hover:gap-4 transition cursor-pointer"
+                  <button
+                    onClick={scrollToForm}
+                    className="inline-flex items-center gap-2 mx-6 mb-6 font-display font-semibold text-xs text-foreground border-b border-foreground pb-0.5 hover:gap-4 transition motion-reduce:transition-none cursor-pointer"
                   >
                     Learn more & book <span aria-hidden="true">➔</span>
                   </button>
