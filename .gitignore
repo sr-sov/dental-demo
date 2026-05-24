@@ -29,6 +29,7 @@
 
 # local developer/agent specific directories
 .dev/
+.worktrees/
 
 # IDEs and Editors
 .vscode/
