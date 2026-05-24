@@ -19,8 +19,6 @@ export default function Hero({ ctaText }: HeroProps) {
           quality={60}
           className="object-cover brightness-[0.98]"
         />
-        {/* Subtle overlay to soften photo details under the card edge */}
-        <div className="absolute inset-0 bg-slate-900/5 mix-blend-multiply" />
       </div>
 
       {/* Foreground Content Panel */}
