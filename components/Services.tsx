@@ -89,7 +89,7 @@ export default function Services() {
                 >
                   <div className="flex justify-between items-baseline mb-3">
                     <span aria-hidden="true" className="font-display text-xs font-semibold text-accent">{s.cat}</span>
-                    <span className="text-xs italic text-foreground-subtle">{s.tag}</span>
+                    <span className="text-xs italic text-foreground-subtle pr-10">{s.tag}</span>
                   </div>
                   <div className="font-serif text-xl font-semibold text-foreground pr-10">
                     {s.title}

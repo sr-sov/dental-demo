@@ -114,7 +114,7 @@ export default function CalendlyEmbed({
   }, [url, prefill, onBookingComplete, onError]);
 
   return (
-    <div className="relative w-full h-[600px] rounded-2xl overflow-hidden border border-line bg-transparent">
+    <div className="relative w-full h-[600px] rounded-2xl border border-line bg-transparent">
       {isLoading && !error && (
         <div
           className={`absolute inset-0 flex flex-col items-center justify-center gap-3 animate-pulse transition-opacity duration-300 ${
