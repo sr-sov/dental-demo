@@ -48,6 +48,12 @@ export default function BookingForm() {
 
   return (
     <div className="w-full max-w-2xl mx-auto rounded-3xl bg-white p-6 shadow-xl border border-line md:p-8 transition-all duration-300">
+      {/* Live region: announces step transitions to screen readers */}
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        {step === 'schedule' && 'Loading Dr. Sarah&apos;s calendar. Select your preferred time slot.'}
+        {step === 'success' && `Appointment secured! Thank you, ${formData.fullName}. Your time slot has been scheduled and comfort preferences registered.`}
+      </div>
+
       {step === 'intake' && (
         <form onSubmit={handleContinueToSchedule} className="space-y-5">
           <div>
@@ -75,7 +81,7 @@ export default function BookingForm() {
               htmlFor="urgentEmergency"
               className="text-xs font-semibold text-foreground cursor-pointer select-none"
             >
-              ⚠️ Sudden oral pain? Flag as an urgent emergency same-day request
+              <span aria-hidden="true">⚠️</span> Sudden oral pain? Flag as an urgent emergency same-day request
             </label>
           </div>
 
@@ -174,7 +180,7 @@ export default function BookingForm() {
           {/* Comfort Menu selection */}
           <div className="rounded-xl border border-line bg-surface/20 p-4 space-y-3">
             <span className="text-xs font-bold text-foreground uppercase tracking-wider block">
-              🌸 Anxiety-Free Comfort Menu (Complimentary)
+              <span aria-hidden="true">🌸</span> Anxiety-Free Comfort Menu (Complimentary)
             </span>
             <div className="grid grid-cols-2 gap-2 text-xs text-foreground-muted">
               <label className="flex items-center gap-2 cursor-pointer select-none">
@@ -284,7 +290,7 @@ export default function BookingForm() {
       {step === 'success' && (
         <div className="text-center py-8 space-y-4">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent-soft text-accent text-2xl font-bold">
-            ✓
+            <span aria-hidden="true">✓</span>
           </div>
           <h3 className="font-serif text-2xl font-semibold text-foreground">
             Appointment Secured!
@@ -298,7 +304,7 @@ export default function BookingForm() {
           {comforts.length > 0 && (
             <div className="rounded-xl bg-surface/30 p-4 max-w-sm mx-auto text-xs text-foreground-muted space-y-2.5 border border-line">
               <span className="font-bold text-foreground block uppercase tracking-wider text-[10px]">
-                🌸 Comfort Options Reserved For Your Visit:
+                <span aria-hidden="true">🌸</span> Comfort Options Reserved For Your Visit:
               </span>
               <div className="flex flex-wrap gap-1.5 justify-center">
                 {comforts.map((item) => (
@@ -306,7 +312,7 @@ export default function BookingForm() {
                     key={item}
                     className="bg-white border border-line px-2.5 py-1 rounded-full font-medium"
                   >
-                    🌸 {item}
+                    <span aria-hidden="true">🌸</span> {item}
                   </span>
                 ))}
               </div>
@@ -315,7 +321,7 @@ export default function BookingForm() {
 
           {formData.directBilling && (
             <div className="bg-surface-alt/50 border border-line rounded-xl p-3 max-w-sm mx-auto text-xs font-medium text-foreground-muted">
-              💳 Direct Insurance Billing has been flagged. Please bring your
+              <span aria-hidden="true">💳</span> Direct Insurance Billing has been flagged. Please bring your
               insurance card to your appointment.
             </div>
           )}
