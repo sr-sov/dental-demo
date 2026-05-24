@@ -160,7 +160,7 @@ Always-on: `rounded-xl font-semibold transition active:scale-[0.98] hover:bright
 
 Sizes: `sm` → `px-4 py-2 text-sm`, `md` → `px-5 py-3 text-sm`, `lg` → `px-5 py-3.5 text-sm`
 
-No `asChild`. RSC: neutral — `onClick` is preserved as a standard prop; server contexts simply don't fire it.
+No `asChild`. RSC: neutral. Button itself has no `'use client'` directive and contains no hooks or browser APIs, so it renders in either a server or a client tree. Server callers can't pass functions across the RSC boundary, so they use Button for static `<a>` links and `<button type="submit">` form actions only. Client callers (any file with `'use client'`) pass `onClick` normally and React hydrates the event handler there.
 
 #### `TextLink` — underlined link with arrow animation
 
@@ -309,7 +309,7 @@ Find-and-replace in `app/globals.css` and every `components/*.tsx` file. Longest
 | `wc-muted` | `foreground-subtle` |
 | `wc-line` | `line` |
 | `wc-accent-soft` | `accent-soft` |
-| `wc-accent-glow` | (delete — single use; inline the rgba) |
+| `wc-accent-glow` | (delete — single use; replace with inline `color-mix(in oklab, var(--color-accent) 25%, transparent)` in Button) |
 | `wc-accent` | `accent` |
 | `wc-gold` | `gold` |
 
@@ -439,7 +439,7 @@ Plus an entry in `app/robots.ts` disallowing `/styleguide`. The route is product
 No automated test framework is added in v1.
 
 - **Visual validation**: open `/styleguide` in the browser. Every variant must render correctly on light and dark backgrounds.
-- **Refactor validation**: open `/` and visually compare Comfort and FAQ before/after the refactor — they should be pixel-identical or very close. Any visual drift is a primitive bug, not an acceptable design change.
+- **Refactor validation**: open `/` and visually compare Comfort and FAQ before/after the refactor. Acceptance bar is **zero visible difference** — same spacing, same colors, same hover/focus states, same accordion animation. Any visible drift is a primitive bug, not an acceptable design change.
 - **Bundle check**: `npm run build` reports per-route JS bundle sizes. After the change, `/` should not significantly grow — primitives are RSC-neutral; the only new client JS is Disclosure (used in FAQ).
 - **A11y check**: tab through `/styleguide`. Every Button shows a focus ring; every Disclosure summary is keyboard-toggleable; FAQ's single-open behavior still works after refactor.
 
