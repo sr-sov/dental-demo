@@ -1,6 +1,7 @@
 'use client';
 
 import CalendlyEmbed from './CalendlyEmbed';
+import { PhoneLink } from '@/components/ui';
 
 export default function Emergency() {
   return (
@@ -25,12 +26,11 @@ export default function Emergency() {
                 emergency slot online instantly.
               </p>
               <div className="pt-2">
-                <a
-                  href="tel:+15875550142"
-                  className="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-white shadow-lg hover:brightness-[1.05] transition active:scale-[0.98]"
-                >
-                  <span aria-hidden="true">📞</span> Call (587) 555-0142
-                </a>
+              <PhoneLink
+                number="+15875550142"
+                display="Call (587) 555-0142"
+                className="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-white shadow-lg hover:brightness-[1.05] transition active:scale-[0.98]"
+              />
               </div>
             </div>
 
