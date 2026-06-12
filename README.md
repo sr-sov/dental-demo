@@ -2,6 +2,7 @@
 
 [![Lighthouse CI](https://github.com/sr-sov/dental-demo/actions/workflows/lighthouse.yml/badge.svg)](https://github.com/sr-sov/dental-demo/actions/workflows/lighthouse.yml)
 [![Playwright E2E](https://github.com/sr-sov/dental-demo/actions/workflows/playwright.yml/badge.svg)](https://github.com/sr-sov/dental-demo/actions/workflows/playwright.yml)
+[![Unit Tests](https://github.com/sr-sov/dental-demo/actions/workflows/jest.yml/badge.svg)](https://github.com/sr-sov/dental-demo/actions/workflows/jest.yml)
 
 **Live:** [dental-demo-ruddy-two.vercel.app](https://dental-demo-ruddy-two.vercel.app)
 
@@ -26,7 +27,7 @@ CI-verified, 3-run median. Updated every PR.
 - **JSON-LD structured data** — full `Dentist` schema with opening hours, address, phone, aggregate rating (4.9 / 312 reviews), and price range
 - **SEO foundation** — dynamic `sitemap.xml`, `robots.txt`, Open Graph image generation (1200×630), Twitter cards, `en_CA` locale metadata
 - **8 reusable UI primitives** — Button, Card, Disclosure, Section, SectionHeader, IconBadge, TextLink, PhoneLink — all polymorphic with variant/size props
-- **CI/CD pipeline** — Lighthouse CI (90+ gates on perf/a11y/SEO), Playwright E2E (Chrome + Firefox + WebKit), GitHub Actions on every PR
+- **CI/CD pipeline** — Jest + React Testing Library unit tests, Lighthouse CI (90+ gates on perf/a11y/SEO), Playwright E2E (Chrome + Firefox + WebKit), GitHub Actions on every PR
 - **Vercel Analytics** — production-ready with conditional loading (no console errors in local dev)
 
 ---
@@ -72,7 +73,7 @@ Professional in-office laser teeth whitening, custom take-home kits, porcelain v
 | UI | React 19, Tailwind CSS v4, `next/font` |
 | Language | TypeScript 5 (strict mode) |
 | Scheduling | Calendly inline embed |
-| Testing | Playwright (3 browsers), Lighthouse CI |
+| Testing | Jest + React Testing Library, Playwright (3 browsers), Lighthouse CI |
 | Hosting | Vercel |
 
 ## 🛠️ Developer Commands
@@ -83,8 +84,19 @@ Professional in-office laser teeth whitening, custom take-home kits, porcelain v
 | Production Build | `npm run build` |
 | Production Start | `npm run start` |
 | Linting | `npm run lint` |
+| Unit Tests | `npm test` (`npm run test:watch` for watch mode) |
 | E2E Tests | `npm run test:e2e` |
 | Lighthouse CI | `npm run test:lighthouse` |
+
+## 🧪 Unit Testing
+
+Jest 30 + React Testing Library 16 via `next/jest` (SWC transform, CSS/font auto-mocks). Suites live next to the code they cover:
+
+- `components/FaqSection.test.tsx` — accordion behavior: single-open state, `aria-expanded`/`aria-controls` wiring, arrow-key roving focus with wrap, Home/End jumps
+- `components/BookingForm.test.tsx` — 3-step booking wizard with `CalendlyEmbed` mocked at the module boundary: step transitions, prefill serialization (urgency/billing/comfort flags), success-state rendering, back-navigation state retention
+- `lib/cn.test.ts` — class-merge utility: conditional classes and Tailwind conflict resolution
+
+Playwright owns `e2e/`; Jest ignores it (`testPathIgnorePatterns`), so `npm test` stays fast enough for every push.
 
 ## ⚠️ Next.js 16 & React 19 Guidelines
 

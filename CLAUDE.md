@@ -23,8 +23,9 @@ A landing-page build for **Prairie Oak Dental Studio** (Calgary). The creative b
 | Production build | `npm run build` |
 | Production server | `npm run start` |
 | Lint | `npm run lint` (runs plain `eslint` — `next lint` was removed in Next 16) |
+| Unit tests | `npm test` (Jest 30 + React Testing Library via `next/jest`; `npm run test:watch` for watch mode) |
 
-No test runner is installed and there is no `test` script. If a task needs tests, pick and install a runner (Vitest/Jest/Playwright) before claiming "tests pass."
+Jest config lives in `jest.config.mjs` (jsdom env, `@/*` alias mapped, `e2e/` excluded so Playwright specs never run under Jest); setup in `jest.setup.ts`. Suites are co-located with the code (`lib/cn.test.ts`, `components/*.test.tsx`). Playwright (`npm run test:e2e`) owns `e2e/`. Never claim "tests pass" without running the relevant runner.
 
 ## Next.js 16 — things LLMs commonly get wrong
 
