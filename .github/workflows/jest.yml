@@ -15,5 +15,8 @@ jobs:
         with:
           node-version: 24
           cache: npm
+      - run: node --version && npm --version
       - run: npm ci
+      - if: failure()
+        run: tail -150 /home/runner/.npm/_logs/*.log
       - run: npm test
